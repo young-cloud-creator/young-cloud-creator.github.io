@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -80,6 +80,25 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
 
   
 <!-- hexo injector head_end start -->
@@ -282,9 +301,10 @@
             <!-- SEO header -->
             <h1 style="display: none">操作系统 概论</h1>
             
-            <div class="markdown-body">
-              
-              <h1 id="计算机系统">计算机系统</h1>
+            
+              <div class="markdown-body">
+                
+                <h1 id="计算机系统">计算机系统</h1>
 <p>计算机系统通常包括计算机硬件（Hardware）、操作系统（Operating
 System）和应用程序（Application）以及用户（User）几个部分；操作系统运行在计算机硬件上，而应用程序依赖于操作系统向上层提供的一系列服务和接口运行，最后，用户使用应用程序完成自己的工作；这些部分之间的关系如下所示。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs None"> ┌──────────────┐   ┌───────────────┐                 ┌──────────────┐<br> │     USER1    │   │     USER2     │    ... ...      │     USERn    │<br> └───────┬──────┘   └───────┬───────┘                 └───────┬──────┘<br>         │                  │                                 │<br>         ▼                  ▼                                 ▼<br>┌─────────────────────────────────────────────────────────────────────┐<br>│                                                                     │<br>│                             APPLICATION                             │<br>│                                                                     │<br>│         ┌────────────────────────────────────────────────┐          │<br>│         │                                                │          │<br>└─────────┤                OPERATING SYSTEM                ├──────────┘<br>          │                                                │<br>          │        ┌───────────────────────────────┐       │<br>          └────────┤                               ├───────┘<br>                   │           HARDWARE            │<br>                   │                               │<br>                   └───────────────────────────────┘<br></code></pre></td></tr></table></figure>
@@ -346,13 +366,13 @@ System）和应用程序（Application）以及用户（User）几个部分；�
 <h4 id="step-1接通电源运行bios">Step 1：接通电源，运行BIOS</h4>
 <p>接通电源后，CPU首先会执行一条跳转指令，这条指令将会使CPU跳转BIOS代码继续执行，BIOS在进行一系列初始化和自检工作（该过程被称为POST过程）后，执行自举过程，该过程将第一阶段引导程序的代码（是主引导记录的一部分）从磁盘指定位置（磁盘的首个扇区）调入到内存中，随后跳转到第一阶段引导程序继续执行。</p>
 <div class="note note-info">
-            <p>BIOS的全称是Basic Input OutputSystem，它是硬件厂商在硬件上自带的一段启动的代码，作用是进行一些硬件检查，并且跳转到引导程序bootloader。</p>
+            <p>BIOS的全称是Basic Input OutputSystem，它是硬件厂商在硬件上自带的一段启动的代码，作用是进行一些硬件检查，并且跳转到引导程序bootloader。</p>
           </div>
 <div class="note note-info">
-            <p>引导程序，英文为Bootloader，引导在英文中为“boot”，是bootstrap的缩写，源自于短语“Pulloneself up by one'sbootstraps”，即“靠自己振作起来”。引导程序的任务是将另一段程序代码加载到内存中。</p>
+            <p>引导程序，英文为Bootloader，引导在英文中为“boot”，是bootstrap的缩写，源自于短语“Pulloneself up by one'sbootstraps”，即“靠自己振作起来”。引导程序的任务是将另一段程序代码加载到内存中。</p>
           </div>
 <div class="note note-info">
-            <p>主引导记录，英文为Master BootRecord，简称MBR，又称主引导扇区，记录着引导程序代码和硬盘本身的相关信息以及硬盘各个分区的大小及位置信息。</p>
+            <p>主引导记录，英文为Master BootRecord，简称MBR，又称主引导扇区，记录着引导程序代码和硬盘本身的相关信息以及硬盘各个分区的大小及位置信息。</p>
           </div>
 <h4 id="step-2第一阶段引导程序加载第二阶段引导程序">Step
 2：第一阶段引导程序加载第二阶段引导程序</h4>
@@ -448,8 +468,9 @@ System，允许多个联机用户同时使用一台计算机系统进行计算�
 <li>线程，CPU调度的最小单位</li>
 </ul>
 
-              
-            </div>
+                
+              </div>
+            
             <hr/>
             <div>
               <div class="post-metas my-3">
@@ -649,6 +670,7 @@ System，允许多个联机用户同时使用一台计算机系统进行计算�
 
 
 
+
     
 
     
@@ -762,25 +784,6 @@ System，允许多个联机用户同时使用一台计算机系统进行计算�
 
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-  
-
-
-
-
-  
     <script  src="/js/img-lazyload.js" ></script>
   
 
@@ -815,74 +818,9 @@ System，允许多个联机用户同时使用一台计算机系统进行计算�
 </script>
 
 
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
   
@@ -918,9 +856,9 @@ System，允许多个联机用户同时使用一台计算机系统进行计算�
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
-
   <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
