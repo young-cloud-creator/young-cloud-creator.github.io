@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
 <meta property="og:description" content="处理器管理是操作系统的重要组成部分之一，负责管理、调度和分派处理器资源以及控制程序的执行。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/os-schedule/线程实现.png">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/os-schedule/index.png">
 <meta property="article:published_time" content="2022-06-21T05:56:05.379Z">
 <meta property="article:modified_time" content="2022-06-21T05:56:05.379Z">
 <meta property="article:author" content="Young Cloud Creator">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="CPU">
 <meta property="article:tag" content="进程">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/os-schedule/线程实现.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/os-schedule/index.png">
   
   
   
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;

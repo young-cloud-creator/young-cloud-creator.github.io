@@ -25,6 +25,7 @@
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
 <meta property="og:description" content="蛮力算法通常原理简单，易于实现，但代价往往较高，有较大的提升空间。分治策略往往可以提高算法的效率，分治策略的关键是对子问题的划分和对子问题解的合并。通常，根据这两个步骤的难易程度可以把分治算法分成“难分易合型”和“易分难合型”。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/sort-alg/index.png">
 <meta property="article:published_time" content="2022-06-17T06:33:33.762Z">
 <meta property="article:modified_time" content="2022-06-17T06:33:33.762Z">
 <meta property="article:author" content="Young Cloud Creator">
@@ -34,6 +35,7 @@
 <meta property="article:tag" content="快速排序">
 <meta property="article:tag" content="归并排序">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/sort-alg/index.png">
   
   
   
@@ -75,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;

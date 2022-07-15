@@ -60,7 +60,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"young-cloud-creator.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"nhdokQbdjsn8rBUoMpmcqWuJ-MdYXbMMI","app_key":"Jp2EI8iomGMITpSuKEX32pH9","server_url":"https://nhdokqbd.api.lncldglobal.com","path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -243,7 +243,80 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/git-note/" target="_self">
+          <img src="/illustration/git-note/index.png" srcset="/img/loading.gif" lazyload alt="Git基本原理和常用操作">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/git-note/" target="_self">
+          Git基本原理和常用操作
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/git-note/" target="_self">
+        <div>
+          版本控制系统（Version Control System）是一种用于记录文件（以及文件目录）的变化的工具。而Git是目前最为主流的版本控制系统，它已经成为版本控制系统的事实标准。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-15 12:24" pubdate>
+              2022-07-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Git/" class="category-chain-item">Git</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">#Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/os-concurrency/" target="_self">
+          <img src="/illustration/os-concurrency/index.png" srcset="/img/loading.gif" lazyload alt="操作系统 并发控制">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/os-concurrency/" target="_self">
@@ -252,7 +325,7 @@
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/os-concurrency/" target="_self">
+      <a class="index-excerpt " href="/os-concurrency/" target="_self">
         <div>
           并发控制概论 一组进程在执行时间上重叠，一个进程执行的第一条指令可能是在另一个进程执行的最后一条指令完成之前开始的，这就是进程的并发性。从宏观来看，一个时间段中有多个进程同时处于活动状态，而从微观来看，任一时刻仅有一个进程在处理器上运行。综上，进程并发的实质是一个CPU在多个进程之间的多路复用。 并发程序间的关系  无关  不同的并发进程在不同的变量集合上操作，一个进程的执行与其他并发进程的执行无
         </div>
@@ -310,7 +383,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/os-schedule/" target="_self">
+          <img src="/illustration/os-schedule/index.png" srcset="/img/loading.gif" lazyload alt="操作系统 处理器管理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/os-schedule/" target="_self">
@@ -319,7 +398,7 @@
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/os-schedule/" target="_self">
+      <a class="index-excerpt " href="/os-schedule/" target="_self">
         <div>
           处理器管理是操作系统的重要组成部分之一，负责管理、调度和分派处理器资源以及控制程序的执行。
         </div>
@@ -377,7 +456,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/os-overview/" target="_self">
+          <img src="/illustration/os-overview/index.png" srcset="/img/loading.gif" lazyload alt="操作系统 概论">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/os-overview/" target="_self">
@@ -386,7 +471,7 @@
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/os-overview/" target="_self">
+      <a class="index-excerpt " href="/os-overview/" target="_self">
         <div>
           操作系统是处于硬件和应用程序中间的软件，它向上为应用程序提供简洁易用的资源抽象，屏蔽复杂的底层逻辑；向下管理种类繁多的硬件资源。
         </div>
@@ -438,7 +523,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/sort-alg/" target="_self">
+          <img src="/illustration/sort-alg/index.png" srcset="/img/loading.gif" lazyload alt="常见排序算法及其时间复杂度">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/sort-alg/" target="_self">
@@ -447,7 +538,7 @@
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/sort-alg/" target="_self">
+      <a class="index-excerpt " href="/sort-alg/" target="_self">
         <div>
           蛮力算法通常原理简单，易于实现，但代价往往较高，有较大的提升空间。分治策略往往可以提高算法的效率，分治策略的关键是对子问题的划分和对子问题解的合并。通常，根据这两个步骤的难易程度可以把分治算法分成“难分易合型”和“易分难合型”。
         </div>
@@ -507,7 +598,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/hello-world/" target="_self">
+          <img src="/illustration/hello-world/index.png" srcset="/img/loading.gif" lazyload alt="Hello World">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/hello-world/" target="_self">
@@ -516,7 +613,7 @@
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/hello-world/" target="_self">
+      <a class="index-excerpt " href="/hello-world/" target="_self">
         <div>
           Hello, world!
         </div>
