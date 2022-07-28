@@ -18,24 +18,25 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="版本控制系统（Version Control System）是一种用于记录文件（以及文件目录）的变化的工具。而Git是目前最为主流的版本控制系统，它已经成为版本控制系统的事实标准。">
+    <meta name="description" content="在Android开发中需要用到各种组件来实现程序功能，这里介绍一些常用的基础组件知识。Android基础组件可以分为界面组件、服务组件、广播组件和数据组件四大类，一个正常运行的Android App至少需要用到这些组件中的一种或多种，所以这些组件是Android开发的基础知识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git基本原理和常用操作">
-<meta property="og:url" content="https://young-cloud-creator.github.io/git-note/">
+<meta property="og:title" content="Android常用基础组件">
+<meta property="og:url" content="https://young-cloud-creator.github.io/android-widget/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="版本控制系统（Version Control System）是一种用于记录文件（以及文件目录）的变化的工具。而Git是目前最为主流的版本控制系统，它已经成为版本控制系统的事实标准。">
+<meta property="og:description" content="在Android开发中需要用到各种组件来实现程序功能，这里介绍一些常用的基础组件知识。Android基础组件可以分为界面组件、服务组件、广播组件和数据组件四大类，一个正常运行的Android App至少需要用到这些组件中的一种或多种，所以这些组件是Android开发的基础知识。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/git-note/index.png">
-<meta property="article:published_time" content="2022-07-15T04:24:18.948Z">
-<meta property="article:modified_time" content="2022-07-15T04:24:18.948Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-widget/activity_lc.png">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-widget/fragment_lc.png">
+<meta property="article:published_time" content="2022-07-28T14:50:27.009Z">
+<meta property="article:modified_time" content="2022-07-28T14:50:27.009Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/git-note/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/android-widget/activity_lc.png">
   
   
   
-  <title>Git基本原理和常用操作 - Cloud Creator&#39;s Blog</title>
+  <title>Android常用基础组件 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Git基本原理和常用操作"></span>
+            <span id="subtitle" data-typed-text="Android常用基础组件"></span>
           
         </div>
 
@@ -236,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-15 12:24" pubdate>
-          2022年7月15日 中午
+        <time datetime="2022-07-28 22:50" pubdate>
+          2022年7月28日 晚上
         </time>
       </span>
     
@@ -248,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k 字
+          4.2k 字
         
       </span>
     
@@ -259,7 +260,7 @@
         
         
         
-          43 分钟
+          35 分钟
         
       </span>
     
@@ -305,146 +306,144 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git基本原理和常用操作</h1>
+            <h1 style="display: none">Android常用基础组件</h1>
             
             
               <div class="markdown-body">
                 
-                <p>版本控制系统（Version Control
-System）是一种用于记录文件（以及文件目录）的变化的工具。通过版本控制系统，我们可以了解文件（以及文件目录）的改动历史（谁在何时对文件做了什么更改），并能够随时将文件恢复到之前任何一个状态。版本控制系统为团队合作带来了便利，团队可以同时开发并在最后将各自的成果合并起来；而使用版本控制系统的个人也能利用它方便地管理自己的文件。</p>
-<p>Git最初由林纳斯·托瓦兹创作，于2005年以GPL许可协议发布。最初目的是为了更好地管理Linux内核开发而设计。Git是目前最为主流的版本控制系统，它已经成为版本控制系统的事实标准（the
-de facto
-standard）。与CVS、SVN等集中式版本控制系统不同，Git是一个分布式版本控制系统，也就是说它不将项目的版本库存放在中央服务器上，而是在每一台计算机上都存放一个完整的项目版本库。</p>
-<div class="note note-info">
-            <p>本文内容基于MIT的missing-semester课程中的Version Control(Git)一节，你可以在<ahref="https://missing.csail.mit.edu/2020/version-control/">https://missing.csail.mit.edu/2020/version-control/</a>找到完整的课程录像和讲义</p>
-          </div>
-<h1 id="git基本原理">Git基本原理</h1>
-<p>在Git的术语中，一个文件被称为一个blob，一个文件是一组字节的集合；一个目录被称为一个tree（树），一个tree可以包含若干blobs和若干trees；一个snapshot（快照）是项目的顶层tree（即代表项目根目录的tree）。</p>
-<p>一个项目的不同版本的集合可以看作是若干个snapshot的集合，Git使用有向无环图（Directed
-Acyclic
-Graph，DAG）来组织这些snapshot。在Git中，snapshot是一个commit的一部分，一个commit可以看作是一个包含更多信息的snapshot，每一个commit有若干个父commit。</p>
-<p>例如，如果某个commit（记作B）直接由另一个commit（记作A）经过某些变化产生（比如在commit
-A的基础上修改了某些文件），那么commit B的父commit就只有一个，即commit
-A； <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs None">A &lt;-- B<br></code></pre></td></tr></table></figure>
-而如果某个commit是由两个（或更多）commit合并而来，那么该commit的父commit就不止一个。比如commit
-A修改了文件A，commit
-B修改了文件B，现在我们通过一个commit（记作C）合并这两个commit，即创建一个既修改了文件A又修改了文件B的commit，那么这个commit的父commit就是commit
-A和commit B。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs None"><br>A &lt;---- C<br>       /<br>      v<br>      B<br></code></pre></td></tr></table></figure>
-commit在创建之后就不能被修改，它所代表的是项目的修改历史，如果你要修改文件，只需要在某个或某几个commit的基础上创建一个新的commit。</p>
-<h2 id="数据结构">数据结构</h2>
-<p>上面的描述可能比较模糊，下面用伪代码描述blob、tree和commit的数据结构。
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs None">type blob = array&lt;byte&gt; //一个文件也就是blob是由若干字节构成的<br><br>//一个目录也就是tree包含若干个tree和blob<br>//为了区分这些不同的tree或者blob，需要一个字符串来标识它们（可以理解为文件名/目录名）<br>type tree = map&lt;string, tree | blob&gt;<br><br>//一个commit包含它的父commit（当然，实际上存储的是父commit的标识而非父commit本身）<br>//以及一些其他信息（例如commit的作者、commit的信息）<br>//和对顶层目录的snapshot（实际上存储的是snapshot的标识而非snapshot本身）<br>type commit = struct &#123;<br>    parents: array&lt;commit&gt;<br>    author: string<br>    message: string<br>    snapshot: tree<br>&#125;<br></code></pre></td></tr></table></figure></p>
-<p>现在定义object，一个object可以是blob、tree或者commit。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs None">type object = blob | tree | commit<br></code></pre></td></tr></table></figure>
-在Git中，object统一使用SHA-1进行哈希，以哈希值作为object的地址。这样，tree对其包含的tree和blob的存储，实际上是存储这些tree和blob的地址（哈希值）。在终端中，可以通过<code>git cat-file -p</code>加上object的哈希值得到object。</p>
-<h2 id="引用-reference">引用 Reference</h2>
-<p>现在，尽管可以通过SHA-1哈希值访问object，但是这显然是不方便的，毕竟这一长串哈希值对人类来说不过是无意义的乱码，它难以被记忆和使用。Git对此的解决方法是通过<strong>引用（reference）</strong>，reference是一个类似<code>map&lt;string, string&gt;</code>的映射，它将名字（人类可读的字符串）与哈希值相绑定，从而使人类可以通过有意义的名字访问object。常见的reference例子是Git的分支名，Git的分支其实是指向某个commit的reference，通过<code>git checkout</code>，人类可以方便地使用有意义的分支名访问到某个特定commit。例如，<code>master</code>往往指向项目主分支的最新的一个commit，而<code>HEAD</code>则是指向当前所在的commit。</p>
-<h2 id="仓库-repository">仓库 Repository</h2>
-<p>前面介绍了Git中的一些基本名词（blob、tree、commit、object、reference等）。粗略来说，Git仓库就是object和reference的集合，Git命令的实质是在commit构成的DAG中对object和reference进行操作，比如,如果想要修改<code>master</code>引用，使<code>master</code>引用指向哈希值为<code>5d83f9e</code>的commit，对应的Git命令是<code>git checkout master; git reset --hard 5d83f9e</code>。</p>
-<h2 id="暂存区-staging-area">暂存区 Staging Area</h2>
-<p>前面提到，一个项目的不同版本可以看作是一系列snapshot的集合，但Git并不是简单地创建当前状态的snapshot，而是给予用户更大的自主权，在创建snapshot时，Git允许用户挑选具体哪些更改将被保存到这一snapshot，比如，用户可以一次性实现两个功能，但为这两个功能分别创建一个snapshot。</p>
-<p>为了实现上面的特性，Git提供了暂存区机制，用户将更改加入到暂存区，然后为暂存区中的所有更改创建一个snapshot（也就是commit）。这样，用户可以自由选择哪些更改将被加入到下一次commit，这种对更改的选择甚至可以具体到文件的某一行内容。</p>
-<h1 id="git常用操作">Git常用操作</h1>
-<p>这里列出常用的Git操作，更具体的可以参考<a
-target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2"><u>Pro
-Git</u></a>、使用<code>git help</code>或者参考其他Git教程。</p>
-<h2 id="基础操作">基础操作</h2>
+                <p>在Android开发中需要用到各种组件来实现程序功能，这里介绍一些常用的基础组件知识。</p>
+<p>Android基础组件可以分为界面组件、服务组件、广播组件和数据组件四大类，一个正常运行的Android
+App至少需要用到这些组件中的一种或多种，所以这些组件是Android开发的基础知识。</p>
+<h1 id="界面组件">界面组件</h1>
+<p>界面组件有界面容器，也有TextView、Button等界面元素，这里来介绍界面容器。</p>
+<p>界面容器承担着为界面提供容器的重要作用，我们打开任何一个App，都会看到程序界面，界面中包括各种各样的文字、按钮、图形等等元素；而有时通过一些操作，又会打开新的界面（例如：在聊天软件中点击某人头像，打开与ta的私聊界面；又例如：相册总览界面、大图页面和图片编辑页面就是三个不同的界面）。用户通过界面与程序进行交互，，而界面容器为界面提供了容身之地，可见界面容器在Android开发中的重要性。</p>
+<p>下面介绍Activity和Fragment两种界面容器。</p>
+<h2 id="activity">Activity</h2>
+<p>Activity是Android系统中最基础的界面容器，它承担着前台交互、程序入口和布局容器的功能。前台交互，也就是用户直接通过Activity提供的界面与程序进行交互；与通常C/C++命令行程序从main函数开始运行不同，Android程序总是从MainActivity中的成员函数开始运行，所以Activity承担了程序入口的功能；此外，Android中若干UI组件（例如文本TextView、图片ImageView、按钮Button等）的位置依赖于布局，而Activity充当着布局容器的角色。</p>
+<h3 id="activity基本用法">Activity基本用法</h3>
+<ol type="1">
+<li>注册：在AndroidManifest.xml中注册</li>
+<li>布局：在layout中配置布局文件</li>
+<li>绑定：将布局绑定到Activity</li>
+</ol>
+<h3 id="activity生命周期">Activity生命周期</h3>
+<p>前面提到Activity具有程序入口的功能，Android程序启动时总遵从一定的顺序去调用MainActivity的一些成员函数来完成程序的初始化、界面的加载等等任务并最终将界面呈现在用户面前，最后关闭程序。Activity从创建到最终销毁全过程的函数调用顺序就是Activity的<strong>生命周期</strong>，系统在Activity生命周期的不同阶段调用不同的函数，所以Android开发者必须了解Activity的生命周期，程序才能在预期的时候做出预期的行为。</p>
+<p>下图展示了在Activity生命周期不同阶段系统的行为：</p>
+<figure>
+<img src="/illustration/android-widget/activity_lc.png" srcset="/img/loading.gif" lazyload
+alt="Activity生命周期" />
+<figcaption aria-hidden="true">Activity生命周期</figcaption>
+</figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs Text">                                 +-------------+<br>                   +-----------&gt; |   Started   +-------&gt; onResume() &lt;-------------+<br>                   |             +-------------+            |                     |<br>                   |                    ^                   |                     |<br>               onStart()                |                   v                     |<br>                   ^                    |               +---------+               |<br>                   |                    |               | Resumed |               |<br>                   |                    |               +---+-----+               |<br>                   |                 onStart()              |                 +---+----+<br>             +-----+-----+              ^                   +---&gt;onPaused()--&gt;| Paused |<br>onCreate()--&gt;|  Created  |              |                                     +---+----+<br>             +-----------+              |             +---------+                 |<br>                                     onRestart()&lt;-----+ Stopped |&lt;------onStop()&lt;-+<br>                                                      +----+----+<br>                     +-----------+                         |<br>                     | Destroyed |&lt;------- onDestroy() &lt;---+<br>                     +-----------+<br></code></pre></td></tr></table></figure>
 <ul>
-<li><code>git help &lt;command&gt;</code>
-获取帮助/获取具体某一命令的帮助</li>
-<li><code>git init</code> 创建一个新的空Git仓库</li>
-<li><code>git status</code>
-查看当前情况（有无文件被修改、有无新文件、暂存区情况等）</li>
-<li><code>git add &lt;filename&gt;</code> 将文件加入暂存区
-<ul>
-<li><code>git add -p &lt;filename&gt;</code>
-进入交互模式，更具体地指定要加入暂存区的内容</li>
-</ul></li>
-<li><code>git commit</code> 创建一个commit</li>
-<li><code>git log</code> 以扁平模式展示历史commit记录
-<ul>
-<li><code>git log --graph</code>
-以DAG方式展示历史commit记录，可以看到commit之间的关系</li>
-</ul></li>
-<li><code>git diff &lt;filename&gt;</code>
-查看文件相较于暂存区内容（或HEAD指向的commit）的区别
-<ul>
-<li><code>git diff &lt;revision&gt; &lt;filename&gt;</code>
-查看文件在不同commit之间的区别，<code>&lt;revision&gt;</code>可以是branch的名字、commit的哈希值，如果<code>&lt;revision&gt;</code>只有一个branch名字或者commit哈希值，则会比较其指向的commit与当前commit的文件差异</li>
-</ul></li>
-<li><code>git checkout &lt;revision&gt;</code>
-更新HEAD，使其指向<code>&lt;revision&gt;</code>指出的commit，从而使项目目录变成<code>&lt;revision&gt;</code>指出的commit时的状态，可以用来切换分支、查看项目历史状态等</li>
+<li><code>onCreate()</code>
+在Activity创建时被调用，通常在这里创建视图、绑定数据</li>
+<li><code>onStart()</code> 即将进入前台</li>
+<li><code>onResume()</code> 与用户进行交互</li>
+<li><code>onPause()</code>
+被其他Activity部分覆盖，Activiy部分可见时被调用</li>
+<li><code>onStop()</code>
+被其他Activity完全覆盖，Activiy不可见时被调用</li>
+<li><code>onRestart()</code> 重启已经Stop的Activity时被调用</li>
+<li><code>onDestroy()</code>
+Activity被销毁时被调用，用于释放Activity占用的所有资源</li>
+<li><code>onSaveInstanceState()</code>
+在非正常关闭时被调用，用于保存运行数据</li>
+<li><code>onRestoreInstanceState()</code> 用于恢复保存的数据</li>
 </ul>
-<h2 id="分支相关操作">分支相关操作</h2>
-<p>分支的操作本质是对代表分支的reference的操作，例如切换分支是修改HEAD指向分支的reference，创建分支是创建一个指向HEAD指向的commit的新reference</p>
+<p>总而言之，Activity总是在Active、Pause、Stop和Killed四种状态之间转换，当它被创建并和用户交互时，处于Active状态；当它失去焦点时，处于Pause或Stop状态；当它被销毁后，处于Killed状态。</p>
+<p>一些常见场景中的Activity生命周期流转： 1.
+在配置发生改变时（例如：屏幕发生旋转，显示方向由竖屏变为横屏），将会调用<code>onConfigurationChanged()</code>方法，可以通过对该方法的重写实现一些特殊功能。在通常情况下，配置发生改变将引起Activty的重建，重建的函数调用过程如下所述：
+1. 销毁：Resumed -&gt; onSaveInstanceState() -&gt; onPause() -&gt;
+onStop() -&gt; onDestroy() -&gt; Destroyed 2. 重建：Destroyed -&gt;
+onCteate() -&gt; onStart() -&gt; onRestoreInstanceState() -&gt;
+onResume() -&gt; Resumed 3.
+可以通过配置AndroidManifest中的configChange属性来实现不重建Activity 2.
+启动：onCreate() -&gt; onStart() -&gt; onResume() -&gt; Resumed 3.
+退出：Resumed -&gt; onPause() -&gt; onStop() -&gt; onDestroy() -&gt;
+Destroyed 4. 部分覆盖：Resumed -&gt; onPause() -&gt; Paused 5.
+部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed 6. 完全覆盖：Resumed
+-&gt; onPause() -&gt; onSaveInstanceState() -&gt; onStop() -&gt; Stoped
+7. 完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt; Resumed
+8. 后台回收：Stoped -&gt; Killed 9. 回收恢复：Killed -&gt; onCreate()
+-&gt; onStart() -&gt; onRestoreInstanceState() -&gt; onResume() -&gt;
+Resumed</p>
+<h3 id="activity启动模式">Activity启动模式</h3>
+<p>Activity具有4种启动模式，分别是Standard、SingleTop、SingleTask和SingleInstance。</p>
 <ul>
-<li><code>git branch</code> 列出所有分支
+<li>Standard
 <ul>
-<li><code>git branch &lt;name&gt;</code>
-创建一个名为<code>&lt;name&gt;</code>的分支</li>
+<li>这种启动模式允许Activity重复，这也是默认的启动模式</li>
 </ul></li>
-<li><code>git checkout &lt;name&gt;</code>
-切换至<code>&lt;name&gt;</code>分支
+<li>SingleTop
 <ul>
-<li><code>git checkout -b &lt;name&gt;</code>
-创建并切换至<code>&lt;name&gt;</code>分支，等同于<code>git branch &lt;name&gt;; git checkout &lt;name&gt;</code></li>
+<li>这种启动模式不允许Activity与栈顶Activity重复，也就是不允许连续的重复Activity</li>
 </ul></li>
-<li><code>git merge &lt;revision&gt;</code>
-合并分支/commit到当前分支</li>
-<li><code>git mergetool</code>
-使用mergetool来处理合并时的冲突（conflict）
+<li>SingleTask
 <ul>
-<li>mergetool使用前需要自己在git
-config中指定mergetool，一般有vimdiff、beyondCompare、diffmerge等多种工具</li>
-<li>mergetool帮助用户查看冲突所在，用户可以选择冲突两方中的一方内容作为最终内容，也可以选择冲突两方最近共同祖先的内容或者自己手动编辑内容，从而解决冲突</li>
+<li>这种启动模式不允许同一栈内Activity有重复，如果要启动的Activity已在栈内，将会从栈中移除该Activity之上的所有Activity</li>
 </ul></li>
-<li><code>git rebase</code>
-merge操作将创建一个新的commit，父commit指向merge的分支；而rebase则会临时保存当前分支从与要合并分支的共同祖先开始的每一个commit记录作为patch（补丁），然后将当前分支reference指向要合并的分支，然后把保存的补丁逐个进行commit。
+<li>SingleInstance
 <ul>
-<li>如下所示， <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs None">before:<br>A &lt;- B &lt;- C(branch A)<br>     ^<br>      \<br>        D &lt;- E(branch B)<br>        <br>after:<br>A &lt;- B &lt;- C(branch A) &lt;- D&#x27; &lt;- E&#x27;(branch B)<br>     ^<br>      \<br>        D(throw away) &lt;- E(throw away)<br></code></pre></td></tr></table></figure></li>
-<li><code>git rebase -i</code> 交互式rebase</li>
+<li>这种启动模式不允许全局有重复的Activity</li>
 </ul></li>
 </ul>
-<h2 id="远程仓库相关操作">远程仓库相关操作</h2>
+<h2 id="fragment">Fragment</h2>
+<p>Fragment是Android系统为解决屏幕尺寸碎片化问题而提供的一种轻量级页面容器。</p>
+<h3 id="fragment基本用法">Fragment基本用法</h3>
+<ol type="1">
+<li>创建Fragment布局文件</li>
+<li>创建Fragment子类，在适当函数中加载布局文件</li>
+<li>Activity加载Fragment
+<ol type="1">
+<li>静态加载
 <ul>
-<li><code>git remote</code> 列出所有与当前仓库绑定的远程仓库
-<ul>
-<li><code>git remote add &lt;name&gt; &lt;url&gt;</code>
-添加远程仓库</li>
+<li>在Activity的onCreate()函数中声明Fragment</li>
+<li>或在Activity的布局文件中声明Fragment</li>
 </ul></li>
-<li><code>git push &lt;remote&gt; &lt;local branch&gt;:&lt;remote branch&gt;</code>
-向指定远程仓库的指定分支推送本地指定分支的objects</li>
-<li><code>git branch --set-upstream-to=&lt;remote&gt;/&lt;remote branch&gt;</code>
-设置当前所在的本地分支与远程分支的绑定，从而之后可以直接使用<code>git push</code>命令而无需指定分支</li>
-<li><code>git fetch</code> 从远程仓库获取objects/reference信息</li>
-<li><code>git pull</code>
-等同于<code>git fetch; git merge</code>，即从远程仓库获取信息后，合并本地分支与远程分支</li>
-<li><code>git clone &lt;remote&gt; &lt;localpath&gt;</code>
-从远程下载整个仓库</li>
-</ul>
-<h2 id="撤销相关操作">撤销相关操作</h2>
+<li>动态加载
 <ul>
-<li><code>git commit --amend</code> 编辑commit的信息</li>
-<li><code>git reset HEAD &lt;file&gt;</code> 取消对文件更改的暂存</li>
-<li><code>git checkout -- &lt;file&gt;</code> 放弃对文件的更改</li>
-</ul>
-<h2 id="其他">其他</h2>
-<ul>
-<li><code>git config</code> Git是高度自定义的，可以自定义你的Git</li>
-<li><code>git clone --depth=1</code>
-浅克隆，只下载远程仓库的最新版本而非整个版本库</li>
-<li><code>git blame</code> 查看具体文件中某行的作者信息</li>
-<li><code>git stash</code> 暂时移除对仓库的未commit的修改
-<ul>
-<li><code>git stash pop</code>
-恢复之前通过<code>git stash</code>暂时移除的修改</li>
+<li>使用Fragment Manager进行加载</li>
 </ul></li>
-<li><code>git bisect</code> 二分搜索版本历史</li>
-<li><code>.gitignore</code>
-通过该文件指出有意不通过Git追踪的文件，从而在Git操作时忽略它们</li>
+</ol></li>
+</ol>
+<h3 id="fragment生命周期">Fragment生命周期</h3>
+<p>如下所示：</p>
+<figure>
+<img src="/illustration/android-widget/fragment_lc.png" srcset="/img/loading.gif" lazyload
+alt="Fragment生命周期" />
+<figcaption aria-hidden="true">Fragment生命周期</figcaption>
+</figure>
+<p>一些常见场景中的Fragment生命周期流转： 1. 启动：onAttach() -&gt;
+onCreate() -&gt; onCreateView() -&gt; onActivityCreated() -&gt;
+onStart() -&gt; onResume() -&gt; Resumed 2. 退出：Resumed -&gt;
+onPause() -&gt; onStop() -&gt; onDestoryView() -&gt; onDestory() -&gt;
+Destroyed 3. 部分覆盖：Resumed -&gt; onPause() -&gt; Paused 4.
+部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed 5. 完全覆盖：Resumed
+-&gt; onPause() -&gt; onSaveInstanceState() -&gt; onStop() -&gt; Stoped
+6. 完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt; Resumed
+7. 后台回收：Stoped -&gt; Killed 8. 回收恢复：Killed -&gt; onCreate()
+-&gt; onStart() -&gt; onRestoreInstanceState() -&gt; onResume() -&gt;
+Resumed</p>
+<p>此外，Fragment生命周期也可以通过FragmentTransaction.setMaxLifecycle()进行手动干预</p>
+<h2 id="fragment与activity的交互">Fragment与Activity的交互</h2>
+<ul>
+<li>组件获取
+<ul>
+<li>Fragment获取Activity中的组件：<code>getActivity().findViewById(id)</code></li>
+<li>Activity获取Fragment中的组件：<code>getFragmentManager.findFragmentById(id)</code></li>
+</ul></li>
+<li>数据传递
+<ul>
+<li>Activity传数据给Fragment：<code>setArguments(bundle)</code></li>
+<li>Fragment传数据给Activity：
+<ul>
+<li>通过对象（<code>getActivity()</code>）直接传递（方法调用/接口调用）</li>
+<li>通过viewmodel/handler/broadcast/eventbus等通信</li>
+</ul></li>
+</ul></li>
 </ul>
-<div class="note note-info">
-            <p><strong>如何写好git commit message：</strong><ahref="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</a>、<ahref="https://cbea.ms/git-commit/">https://cbea.ms/git-commit/</a></p><p><strong>一些常见的Git错误操作和它们的补救措施：</strong><ahref="https://ohshitgit.com">https://ohshitgit.com</a></p>
-          </div>
+<p>未完待续...</p>
 
                 
               </div>
@@ -463,7 +462,7 @@ merge操作将创建一个新的commit，父commit指向merge的分支；而reba
     
       <span class="category-chain">
         
-  <a href="/categories/Git/" class="category-chain-item">Git</a>
+  <a href="/categories/Android/" class="category-chain-item">Android</a>
   
   
 
@@ -478,7 +477,7 @@ merge操作将创建一个新的commit，父commit指向merge的分支；而reba
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Git/">#Git</a>
+        <a href="/tags/Android/">#Android</a>
       
     </div>
   
@@ -490,8 +489,8 @@ merge操作将创建一个新的commit，父commit指向merge的分支；而reba
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Git基本原理和常用操作</div>
-      <div>https://young-cloud-creator.github.io/git-note/</div>
+      <div>Android常用基础组件</div>
+      <div>https://young-cloud-creator.github.io/android-widget/</div>
     </div>
     <div class="license-meta">
       
@@ -503,7 +502,7 @@ merge操作将创建一个新的commit，父commit指向merge的分支；而reba
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月15日</div>
+          <div>2022年7月28日</div>
         </div>
       
       
@@ -545,18 +544,12 @@ merge操作将创建一个新的commit，父commit指向merge的分支；而reba
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/android-component/" title="Android常用基础组件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Android常用基础组件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/os-concurrency/" title="操作系统 并发控制">
-                        <span class="hidden-mobile">操作系统 并发控制</span>
+                      <a href="/git-note/" title="Git基本原理和常用操作">
+                        <span class="hidden-mobile">Git基本原理和常用操作</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
