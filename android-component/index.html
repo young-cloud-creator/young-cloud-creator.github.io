@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k 字
+          4.1k 字
         
       </span>
     
@@ -351,22 +351,29 @@ Activity被销毁时被调用，用于释放Activity占用的所有资源</li>
 <li><code>onRestoreInstanceState()</code> 用于恢复保存的数据</li>
 </ul>
 <p>总而言之，Activity总是在Active、Pause、Stop和Killed四种状态之间转换，当它被创建并和用户交互时，处于Active状态；当它失去焦点时，处于Pause或Stop状态；当它被销毁后，处于Killed状态。</p>
-<p>一些常见场景中的Activity生命周期流转： 1.
-在配置发生改变时（例如：屏幕发生旋转，显示方向由竖屏变为横屏），将会调用<code>onConfigurationChanged()</code>方法，可以通过对该方法的重写实现一些特殊功能。在通常情况下，配置发生改变将引起Activty的重建，重建的函数调用过程如下所述：
-1. 销毁：Resumed -&gt; onSaveInstanceState() -&gt; onPause() -&gt;
-onStop() -&gt; onDestroy() -&gt; Destroyed 2. 重建：Destroyed -&gt;
-onCteate() -&gt; onStart() -&gt; onRestoreInstanceState() -&gt;
-onResume() -&gt; Resumed 3.
-可以通过配置AndroidManifest中的configChange属性来实现不重建Activity 2.
-启动：onCreate() -&gt; onStart() -&gt; onResume() -&gt; Resumed 3.
-退出：Resumed -&gt; onPause() -&gt; onStop() -&gt; onDestroy() -&gt;
-Destroyed 4. 部分覆盖：Resumed -&gt; onPause() -&gt; Paused 5.
-部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed 6. 完全覆盖：Resumed
--&gt; onPause() -&gt; onSaveInstanceState() -&gt; onStop() -&gt; Stoped
-7. 完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt; Resumed
-8. 后台回收：Stoped -&gt; Killed 9. 回收恢复：Killed -&gt; onCreate()
--&gt; onStart() -&gt; onRestoreInstanceState() -&gt; onResume() -&gt;
-Resumed</p>
+<p>一些常见场景中的Activity生命周期流转：</p>
+<ol type="1">
+<li>在配置发生改变时（例如：屏幕发生旋转，显示方向由竖屏变为横屏），将会调用<code>onConfigurationChanged()</code>方法，可以通过对该方法的重写实现一些特殊功能。在通常情况下，配置发生改变将引起Activty的重建，重建的函数调用过程如下所述：
+<ul>
+<li>销毁：Resumed -&gt; onSaveInstanceState() -&gt; onPause() -&gt;
+onStop() -&gt; onDestroy() -&gt; Destroyed</li>
+<li>重建：Destroyed -&gt; onCteate() -&gt; onStart() -&gt;
+onRestoreInstanceState() -&gt; onResume() -&gt; Resumed</li>
+<li>可以通过配置AndroidManifest中的configChange属性来实现不重建Activity</li>
+</ul></li>
+<li>启动：onCreate() -&gt; onStart() -&gt; onResume() -&gt; Resumed</li>
+<li>退出：Resumed -&gt; onPause() -&gt; onStop() -&gt; onDestroy() -&gt;
+Destroyed</li>
+<li>部分覆盖：Resumed -&gt; onPause() -&gt; Paused</li>
+<li>部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed</li>
+<li>完全覆盖：Resumed -&gt; onPause() -&gt; onSaveInstanceState() -&gt;
+onStop() -&gt; Stoped</li>
+<li>完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt;
+Resumed</li>
+<li>后台回收：Stoped -&gt; Killed</li>
+<li>回收恢复：Killed -&gt; onCreate() -&gt; onStart() -&gt;
+onRestoreInstanceState() -&gt; onResume() -&gt; Resumed</li>
+</ol>
 <h3 id="activity启动模式">Activity启动模式</h3>
 <p>Activity具有4种启动模式，分别是Standard、SingleTop、SingleTask和SingleInstance。</p>
 <ul>
@@ -413,17 +420,22 @@ Resumed</p>
 alt="Fragment生命周期" />
 <figcaption aria-hidden="true">Fragment生命周期</figcaption>
 </figure>
-<p>一些常见场景中的Fragment生命周期流转： 1. 启动：onAttach() -&gt;
-onCreate() -&gt; onCreateView() -&gt; onActivityCreated() -&gt;
-onStart() -&gt; onResume() -&gt; Resumed 2. 退出：Resumed -&gt;
-onPause() -&gt; onStop() -&gt; onDestoryView() -&gt; onDestory() -&gt;
-Destroyed 3. 部分覆盖：Resumed -&gt; onPause() -&gt; Paused 4.
-部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed 5. 完全覆盖：Resumed
--&gt; onPause() -&gt; onSaveInstanceState() -&gt; onStop() -&gt; Stoped
-6. 完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt; Resumed
-7. 后台回收：Stoped -&gt; Killed 8. 回收恢复：Killed -&gt; onCreate()
--&gt; onStart() -&gt; onRestoreInstanceState() -&gt; onResume() -&gt;
-Resumed</p>
+<p>一些常见场景中的Fragment生命周期流转：</p>
+<ol type="1">
+<li>启动：onAttach() -&gt; onCreate() -&gt; onCreateView() -&gt;
+onActivityCreated() -&gt; onStart() -&gt; onResume() -&gt; Resumed</li>
+<li>退出：Resumed -&gt; onPause() -&gt; onStop() -&gt; onDestoryView()
+-&gt; onDestory() -&gt; Destroyed</li>
+<li>部分覆盖：Resumed -&gt; onPause() -&gt; Paused</li>
+<li>部分遮挡恢复：Paused -&gt; onResume() -&gt; Resumed</li>
+<li>完全覆盖：Resumed -&gt; onPause() -&gt; onSaveInstanceState() -&gt;
+onStop() -&gt; Stoped</li>
+<li>完全遮挡恢复：Stoped -&gt; onStart() -&gt; onResume() -&gt;
+Resumed</li>
+<li>后台回收：Stoped -&gt; Killed</li>
+<li>回收恢复：Killed -&gt; onCreate() -&gt; onStart() -&gt;
+onRestoreInstanceState() -&gt; onResume() -&gt; Resumed</li>
+</ol>
 <p>此外，Fragment生命周期也可以通过FragmentTransaction.setMaxLifecycle()进行手动干预</p>
 <h2 id="fragment与activity的交互">Fragment与Activity的交互</h2>
 <ul>
