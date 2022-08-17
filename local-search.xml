@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>客户端架构设计与应用</title>
+    <link href="/software-architecture/"/>
+    <url>/software-architecture/</url>
+    
+    <content type="html"><![CDATA[<p>一款合格的软件，总要有架构设计，合适的架构设计哪个有效减少软件bug，提高开发效率；而不合适的架构设计则可能带来各种各样的问题。</p><h1 id="架构面临的问题">架构面临的问题</h1><p>架构面临的问题随着产品阶段的不同而有所变化，架构就是在这种发展变化中逐渐稳定的。产品的各个阶段和面临的架构问题大体如下：</p><ul><li>我有一个想法💡</li><li>孕育期</li><li>婴儿期<ul><li>架构问题产生，需要确定技术选型和抽象建模</li></ul></li><li>学步期<ul><li>快速融合代码，确定工程架构</li></ul></li><li>青春期 &amp; 壮年期<ul><li>适应业务变化，应对代码膨胀</li></ul></li><li>稳定期<ul><li>不断重构优化，落地标准规范</li></ul></li><li>贵族期</li><li>官僚期<ul><li>流程冗余，相互甩锅</li></ul></li><li>消亡期<ul><li>代码腐朽，项目不可逆转地走向衰亡</li></ul></li></ul><p>而在面临项目涉及多个技术领域时，也会出现一些架构问题，比如：</p><ul><li>交叉问题<ul><li>跨端调用问题（前后端、服务端与客户端、不同语言/框架）</li><li>多端一致</li><li>数据通信</li><li>...</li></ul></li><li>公共问题<ul><li>编程思想</li><li>问题分解方式（按业务/按技术...）</li><li>领域建模</li><li>架构标准</li><li>...</li></ul></li></ul><h1 id="常见的架构手段">常见的架构手段</h1><p>架构面临着各种各样的问题，为了处理这些问题，就需要选择合适的架构手段。这里介绍一些常见的架构手段。</p><h2 id="小的架构手段">小的架构手段</h2><p>这些架构通常比较轻盈简单，适合不那么复杂的小型项目或者大型项目的一个组成部分。</p><h3 id="mvc">MVC</h3><p>将软件分为Model、View、Controller三个部分，Model负责实现程序的功能（包括各种算法）、管理数据，View负责图形界面的部分，而Controller则负责对请求作出处理和转发，连接View和Model。</p><p>缺点是View和Controller的代码容易膨胀，并且View和Model并没有完全分离。</p><h3 id="mvp">MVP</h3><p>将软件分为Model、View、Presenter三个部分，与MVC不同的是，View和Model完全分离，将用户交互完全放在Presenter中。</p><p>缺点是当页面逻辑较复杂时，Presenter的代码将会膨胀，并且需要大量接口，不易维护。</p><h3 id="mvvm">MVVM</h3><p>将软件分为Model、View、ViewModel三个部分，相比于MVP，View和ViewModel的耦合更加彻底，ViewModel只负责处理和提供数据。</p><p>缺点是数据绑定使得数据自动更新到UI，不容易进行调试。</p><h3 id="aop-aspect-oriented-programming">AOP Aspect-orientedprogramming</h3><p>AOP是指剖面导向程序设计，旨在将横切关注点与业务主体进行进一步分离，以提高程序代码的模块化程度。通过在现有代码基础上增加额外的通知（Advice）机制，能够对被声明为“切点（Pointcut）”的代码块进行统一管理与装饰。该思想使得开发人员能够将与代码核心业务逻辑关系不那么密切的功能（如日志功能）添加至程序中，同时又不降低业务代码的可读性。</p><h3 id="ioc-inversion-of-control">IoC Inversion of Control</h3><p>IoC是指控制反转，是指将对象交给IoC容器管理而不是由使用者直接管理，典型例子是Service，应用向ServiceManager发送请求获取某个Service，ServiceManager代替应用向Service进行注册，在这里ServiceManager就充当了IoC容器。</p><h2 id="大的架构手段">大的架构手段</h2><p>对于一个复杂的大型项目，之前介绍的架构手段已经不太适合对项目整体进行架构，这就需要一些特别的架构手段。</p><h3 id="分层架构">分层架构</h3><p>将业务逻辑划分为若干层，每一层保持特定的角色，下层提供API给上层调用。前面提到的MVC、MVP、MVVM其实就是这种架构的特例。</p><h3 id="事件驱动架构">事件驱动架构</h3><p>将业务逻辑抽象为事件的生产和消费，支持异步处理。这是一种分布式架构（各个事件的生产者和消费者都可以分散在不同模块），通常具备高扩展性和适应性。</p><h3 id="微内核架构">微内核架构</h3><p>将业务拆分为核心系统和插件，核心宿主为插件提供运行环境，插件实现业务逻辑。</p><h3 id="微服务架构">微服务架构</h3><p>将业务拆分为多个独立的服务单元，通过注册和发现机制相互调用，一个服务的下线并不会导致整个系统的崩溃。</p><h3 id="领域驱动设计-ddd">领域驱动设计 DDD</h3><p>战略设计从业务视角出发，建立业务领域模型；战术设计从技术视角出发，侧重于技术实现。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>杂项</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>架构设计</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何保证代码质量</title>
     <link href="/code-quality/"/>
     <url>/code-quality/</url>
