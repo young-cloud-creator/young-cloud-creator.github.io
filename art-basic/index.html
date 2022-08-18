@@ -18,24 +18,24 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一款合格的软件，总要有架构设计，合适的架构设计哪个有效减少软件bug，提高开发效率；而不合适的架构设计则可能带来各种各样的问题。">
+    <meta name="description" content="ART全称是Android Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="客户端架构设计与应用">
-<meta property="og:url" content="https://young-cloud-creator.github.io/software-architecture/">
+<meta property="og:title" content="ART虚拟机介绍">
+<meta property="og:url" content="https://young-cloud-creator.github.io/art-basic/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="一款合格的软件，总要有架构设计，合适的架构设计哪个有效减少软件bug，提高开发效率；而不合适的架构设计则可能带来各种各样的问题。">
+<meta property="og:description" content="ART全称是Android Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/software-architecture/index.png">
-<meta property="article:published_time" content="2022-08-17T14:45:55.553Z">
-<meta property="article:modified_time" content="2022-08-17T14:45:55.553Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/art-basic/index.png">
+<meta property="article:published_time" content="2022-08-18T14:04:12.370Z">
+<meta property="article:modified_time" content="2022-08-18T14:04:12.370Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="架构设计">
+<meta property="article:tag" content="ART虚拟机">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/software-architecture/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/art-basic/index.png">
   
   
   
-  <title>客户端架构设计与应用 - Cloud Creator&#39;s Blog</title>
+  <title>ART虚拟机介绍 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="客户端架构设计与应用"></span>
+            <span id="subtitle" data-typed-text="ART虚拟机介绍"></span>
           
         </div>
 
@@ -236,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-17 22:45" pubdate>
-          2022年8月17日 晚上
+        <time datetime="2022-08-18 22:04" pubdate>
+          2022年8月18日 晚上
         </time>
       </span>
     
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          2.4k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          14 分钟
+          20 分钟
         
       </span>
     
@@ -305,94 +305,92 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">客户端架构设计与应用</h1>
+            <h1 style="display: none">ART虚拟机介绍</h1>
             
             
               <div class="markdown-body">
                 
-                <p>一款合格的软件，总要有架构设计，合适的架构设计哪个有效减少软件bug，提高开发效率；而不合适的架构设计则可能带来各种各样的问题。</p>
-<h1 id="架构面临的问题">架构面临的问题</h1>
-<p>架构面临的问题随着产品阶段的不同而有所变化，架构就是在这种发展变化中逐渐稳定的。产品的各个阶段和面临的架构问题大体如下：</p>
+                <p>ART全称是Android
+Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。ART最初是Dalvik虚拟机，从Android
+4.4开始逐渐抛弃Dalvik虚拟机进行针对性优化、引入新的特性，渐渐脱离Dalvik成为独一无二的ART虚拟机。</p>
+<h1 id="art整体架构">ART整体架构</h1>
+<p>ART整体分为Compiler&amp;Interpreter和Runtime两个部分，它们的具体内容如下：</p>
 <ul>
-<li>我有一个想法💡</li>
-<li>孕育期</li>
-<li>婴儿期
+<li>Complier&amp;Interpreter 负责对代码进行处理
 <ul>
-<li>架构问题产生，需要确定技术选型和抽象建模</li>
+<li>解释器，用于解释执行字节码</li>
+<li>JIT Just-in-Time
+即时编译，在运行过程中将执行频率较高的函数编译为机器指令，从而提升运行速度和性能</li>
+<li>AOT Ahead-of-Time
+预先编译，在运行开始前对部分代码进行预先编译，从而提升运行速度和性能</li>
 </ul></li>
-<li>学步期
+<li>Runtime 提供对Java语言机制的支持
 <ul>
-<li>快速融合代码，确定工程架构</li>
-</ul></li>
-<li>青春期 &amp; 壮年期
-<ul>
-<li>适应业务变化，应对代码膨胀</li>
-</ul></li>
-<li>稳定期
-<ul>
-<li>不断重构优化，落地标准规范</li>
-</ul></li>
-<li>贵族期</li>
-<li>官僚期
-<ul>
-<li>流程冗余，相互甩锅</li>
-</ul></li>
-<li>消亡期
-<ul>
-<li>代码腐朽，项目不可逆转地走向衰亡</li>
-</ul></li>
-</ul>
-<p>而在面临项目涉及多个技术领域时，也会出现一些架构问题，比如：</p>
-<ul>
-<li>交叉问题
-<ul>
-<li>跨端调用问题（前后端、服务端与客户端、不同语言/框架）</li>
-<li>多端一致</li>
-<li>数据通信</li>
-<li>...</li>
-</ul></li>
-<li>公共问题
-<ul>
-<li>编程思想</li>
-<li>问题分解方式（按业务/按技术...）</li>
-<li>领域建模</li>
-<li>架构标准</li>
+<li>内存管理</li>
+<li>线程</li>
+<li>异常</li>
+<li>类管理</li>
+<li>JNI，Java Native Interface</li>
+<li>调试</li>
 <li>...</li>
 </ul></li>
 </ul>
-<h1 id="常见的架构手段">常见的架构手段</h1>
-<p>架构面临着各种各样的问题，为了处理这些问题，就需要选择合适的架构手段。这里介绍一些常见的架构手段。</p>
-<h2 id="小的架构手段">小的架构手段</h2>
-<p>这些架构通常比较轻盈简单，适合不那么复杂的小型项目或者大型项目的一个组成部分。</p>
-<h3 id="mvc">MVC</h3>
-<p>将软件分为Model、View、Controller三个部分，Model负责实现程序的功能（包括各种算法）、管理数据，View负责图形界面的部分，而Controller则负责对请求作出处理和转发，连接View和Model。</p>
-<p>缺点是View和Controller的代码容易膨胀，并且View和Model并没有完全分离。</p>
-<h3 id="mvp">MVP</h3>
-<p>将软件分为Model、View、Presenter三个部分，与MVC不同的是，View和Model完全分离，将用户交互完全放在Presenter中。</p>
-<p>缺点是当页面逻辑较复杂时，Presenter的代码将会膨胀，并且需要大量接口，不易维护。</p>
-<h3 id="mvvm">MVVM</h3>
-<p>将软件分为Model、View、ViewModel三个部分，相比于MVP，View和ViewModel的耦合更加彻底，ViewModel只负责处理和提供数据。</p>
-<p>缺点是数据绑定使得数据自动更新到UI，不容易进行调试。</p>
-<h3 id="aop-aspect-oriented-programming">AOP Aspect-oriented
-programming</h3>
-<p>AOP是指剖面导向程序设计，旨在将横切关注点与业务主体进行进一步分离，以提高程序代码的模块化程度。通过在现有代码基础上增加额外的通知（Advice）机制，能够对被声明为“切点（Pointcut）”的代码块进行统一管理与装饰。该思想使得开发人员能够将与代码核心业务逻辑关系不那么密切的功能（如日志功能）添加至程序中，同时又不降低业务代码的可读性。</p>
-<h3 id="ioc-inversion-of-control">IoC Inversion of Control</h3>
-<p>IoC是指控制反转，是指将对象交给IoC容器管理而不是由使用者直接管理，典型例子是Service，应用向Service
-Manager发送请求获取某个Service，Service
-Manager代替应用向Service进行注册，在这里Service
-Manager就充当了IoC容器。</p>
-<h2 id="大的架构手段">大的架构手段</h2>
-<p>对于一个复杂的大型项目，之前介绍的架构手段已经不太适合对项目整体进行架构，这就需要一些特别的架构手段。</p>
-<h3 id="分层架构">分层架构</h3>
-<p>将业务逻辑划分为若干层，每一层保持特定的角色，下层提供API给上层调用。前面提到的MVC、MVP、MVVM其实就是这种架构的特例。</p>
-<h3 id="事件驱动架构">事件驱动架构</h3>
-<p>将业务逻辑抽象为事件的生产和消费，支持异步处理。这是一种分布式架构（各个事件的生产者和消费者都可以分散在不同模块），通常具备高扩展性和适应性。</p>
-<h3 id="微内核架构">微内核架构</h3>
-<p>将业务拆分为核心系统和插件，核心宿主为插件提供运行环境，插件实现业务逻辑。</p>
-<h3 id="微服务架构">微服务架构</h3>
-<p>将业务拆分为多个独立的服务单元，通过注册和发现机制相互调用，一个服务的下线并不会导致整个系统的崩溃。</p>
-<h3 id="领域驱动设计-ddd">领域驱动设计 DDD</h3>
-<p>战略设计从业务视角出发，建立业务领域模型；战术设计从技术视角出发，侧重于技术实现。</p>
+<h1 id="art对象分配">ART对象分配</h1>
+<p>在面向对象编程中，程序会创建许多个对象。在Android中，这些对象就需要由ART来分配合理的内存资源，在对象销毁时进行内存资源的回收和清理。</p>
+<p>创建对象需要有类的定义，类定义决定着一个对象的大小（内存布局，比如类成员的大小和分布）和行为（函数信息）。在Java中，所有类都继承自<code>Object</code>类，在<code>Object</code>类中，有一个<code>klass_</code>成员负责该对象所属类的类对象，还有一个<code>monitor_</code>成员负责存储Hash
+Code和锁信息。</p>
+<h2 id="类管理">类管理</h2>
+<p>对于某个类的一个对象，它分配到的空间取决于继承链，继承链上的所有成员都会被分配空间。在Java中，当类第一次被使用时，将会进行该类的加载。</p>
+<h2 id="内存分配">内存分配</h2>
+<p>Android应用的内存分配是由ART虚拟机来处理的，也就是说应用的内存申请并不是向操作系统提出，而是向虚拟机提出，虚拟机则负责对OS内存的占用和布局。如下所示，</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Text">--------------------------------------<br>                 APP<br>--------------------------------------<br>-----------------------  -------------<br>      ART VM Heap         Native Heap<br>-----------------------  -------------<br>--------------------------------------<br>         Linux Kernel 内存管理<br>--------------------------------------<br></code></pre></td></tr></table></figure>
+<p>ART虚拟机使用不同的分配器来分配内存，对于不同的内存申请使用合适的内存分配器。ART的内存分配器有以下几种：</p>
+<ul>
+<li>TLAB
+<ul>
+<li>相当于局部Cache，分配速度快，但是体积小</li>
+</ul></li>
+<li>ROSallocator
+<ul>
+<li>内存体积中等，从VM mem pool中分配内存</li>
+</ul></li>
+<li>LOSallocator
+<ul>
+<li>申请的内存体积较大，虚拟机将向Linux系统申请内存并分配</li>
+</ul></li>
+</ul>
+<h2 id="内存回收">内存回收</h2>
+<p>当对象不再被使用时，自然需要销毁对象，回收分配给它的内存资源，这就是内存回收。常见的内存回收机制有两种：GC和RC。</p>
+<ul>
+<li>GC机制全称Garbage
+Collection（垃圾回收），这种机制的做法是定期（或者根据某些条件）查找系统中不用的对象并释放内存。</li>
+<li>RC机制全称Reference
+Counting（引用计数），这种机制与GC不同，它对每一个对象进行引用计数，当计数为0时说明不再有引用者使用该对象，于是销毁对象释放内存。</li>
+</ul>
+<p>Android系统采用GC机制进行内存回收，而IOS的Swift采用RC机制进行内存回收。两种方式各有优劣，GC机制因为不能及时回收内存，所以应用的内存占用较大；而RC机制则无法直接回收两个相互引用（或者多个对象形成环引用）但是无用的对象的内存。</p>
+<p>在ART的内存回收机制中，对象的引用被分为强引用、软引用和弱引用。强引用不会被回收，软引用会在内存不足时被回收，而弱引用在GC被触发时就会被回收。GC的触发策略不同固件厂商各不相同，通常来说包括内存不足、VM占用内存到达某个警戒值或者其他条件（比如锁屏若干时间后触发GC回收内存）。</p>
+<p>要进行GC，就要确定对象是否可以被回收，于是这里引入<strong>GC
+roots</strong>的概念。GC
+roots是指一些特殊的栈、引用或者静态变量，在GC时从这些roots出发进行遍历，并把所有遍历到的对象打上标记（mark），遍历完成后所有未被mark的对象就是孤立对象，这些无用的对象将会被回收。在进行内存回收时，有两种做法：</p>
+<ul>
+<li>Tracing GC 直接将所有未被mark的对象的内存</li>
+<li>Coping GC
+这里先介绍一下内存碎片：因为各个应用每次申请的内存总是大小不一，所以久而久之会产生了内存碎片化问题，也就是有许多小的空闲内存块，但是缺少较大的完整内存块，从而难以满足较大体积的内存需求。Coping
+GC将mark过的对象拷贝集中到一个区域，然后释放之前的整块内存空间，从而消除了一部分内存碎片</li>
+</ul>
+<p>在ART的内存回收策略中，前台GC（对前台应用进行的GC）采用Tracing
+GC的方式进行，以避免影响应用使用；后台GC（对后台进程，例如Service，进行的GC）采用Coping
+GC的方式，以避免内存碎片产生。</p>
+<h1 id="art执行方式">ART执行方式</h1>
+<p>在ART虚拟机，代码有三种执行方式，分别是：</p>
+<ul>
+<li>解释执行，解释执行字节码</li>
+<li>JIT，在解释执行同时对函数进行打分，分数高（取决于打分策略）的函数将被编译为机器指令，从而提高之后执行该函数的速度</li>
+<li>AOT，以dex为单位进行预先编译，并将编译后的机器指令持久化存储下来，每次执行到相应部分时直接执行机器指令而无需解释执行字节码</li>
+</ul>
+<h2 id="art栈管理">ART栈管理</h2>
+<p>对于解释执行的部分，栈托管到虚拟机完成；对于编译过的部分，栈管理与native代码一致，遵循对应指令集的压栈约定。</p>
+<p>对于解释执行和编译执行的切换，ART采用trampoline-bridge机制来进行。</p>
 
                 
               </div>
@@ -411,7 +409,7 @@ Manager就充当了IoC容器。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9D%82%E9%A1%B9/" class="category-chain-item">杂项</a>
+  <a href="/categories/Android/" class="category-chain-item">Android</a>
   
   
 
@@ -426,7 +424,7 @@ Manager就充当了IoC容器。</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">#架构设计</a>
+        <a href="/tags/ART%E8%99%9A%E6%8B%9F%E6%9C%BA/">#ART虚拟机</a>
       
     </div>
   
@@ -438,8 +436,8 @@ Manager就充当了IoC容器。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>客户端架构设计与应用</div>
-      <div>https://young-cloud-creator.github.io/software-architecture/</div>
+      <div>ART虚拟机介绍</div>
+      <div>https://young-cloud-creator.github.io/art-basic/</div>
     </div>
     <div class="license-meta">
       
@@ -451,7 +449,7 @@ Manager就充当了IoC容器。</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月17日</div>
+          <div>2022年8月18日</div>
         </div>
       
       
@@ -493,18 +491,12 @@ Manager就充当了IoC容器。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/art-basic/" title="ART虚拟机介绍">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ART虚拟机介绍</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/code-quality/" title="如何保证代码质量">
-                        <span class="hidden-mobile">如何保证代码质量</span>
+                      <a href="/software-architecture/" title="客户端架构设计与应用">
+                        <span class="hidden-mobile">客户端架构设计与应用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
