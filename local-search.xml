@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>多媒体直播技术介绍</title>
+    <link href="/live-stream/"/>
+    <url>/live-stream/</url>
+    
+    <content type="html"><![CDATA[<p>直播技术涉及到视频协议、视频压缩以及视频信息采集处理、信息传输等多个技术，这里来逐一介绍这些技术和直播技术的原理。</p><h1 id="视频的基本元素">视频的基本元素</h1><p>首先来介绍一下视频的基础名词和概念。</p><ul><li>像素：在一个数字序列表示的图像中的最小单位，通常表现为一个小方格。每个像素有自己的颜色值，一般用RGB三原色来表示。</li><li>RGB三原色：将颜色使用R（红）、G（绿）、B（蓝）三个分量来表示，每个分量分为256个等级。</li><li>分辨率：纵横方向的像素数量，一般表示为<code>宽*高</code>（<code>长*宽</code>）。</li><li>码率/比特率：单位时间内传输的bit数量，单位为bps，表示单位时间播放连续的媒体（例如视频、音频）的bit数量。比特率过低会导致视频画面过度压缩、模糊不清，而高比特率则需要较高的网络带宽（如果是在线播放）。</li><li>帧（Frame）：可以理解为视频中的每一个画面，整个视频是由许多静止画面（帧）组成的。</li><li>帧率（Frame Rate）：每秒钟传输、播放的画面数，单位为FPS（Frame perSecond）。通常而言，帧率越高，视频所显示的动作就越流畅，当帧率过低时，人眼就会察觉到视频的卡顿。</li><li>轨道/流：视频不仅有图像信息，通常还会有音频信息，有时可能还会有字幕信息。这些信息就存放在不同的轨道中，形成视频流、音频流。</li></ul><h1 id="视频压缩">视频压缩</h1><p>如果不进行视频压缩，而是将所有的帧原原本本的完整存放在文件中，那么一个稍长的视频文件大小将会非常大。为了节省存储空间，就需要进行视频压缩。</p><h2 id="帧内压缩">帧内压缩</h2><p>帧内压缩（Intraframe Compression）也叫空间压缩（SpatialCompression），是通过对单独的一帧进行压缩而实现的，这种压缩类似于静态图像压缩，一般会采取有损压缩算法（比如把多个像素的颜色信息压缩为一个颜色信息，以损失一部分颜色信息为代价换取空间），通常压缩比不高。</p><ul><li>I-frame：Intra-frame，帧内帧<ul><li>只进行帧内压缩或者不压缩，解码时只需要自身信息就能重构该帧的完整图像，不需要参考其他帧的信息，数据信息量较大，压缩率较低</li></ul></li></ul><h2 id="帧间压缩">帧间压缩</h2><p>帧间压缩（Interframe Compression）也叫时间压缩（TemporalCompression），是基于视频前后两帧一般具有较高相关性（存在冗余信息）的特点实现的。在帧间压缩中，有下面几种类型的帧：</p><ul><li>P-frame：Predicted Frame，前向预测帧<ul><li>解码时必须借助于前面的帧信息，该帧存储的是与前面帧的差值，需要前面的I帧或者P帧才能重构出画面，压缩比较高</li></ul></li><li>B-frame：Bi-Directional Frame，双向预测帧<ul><li>参考在自己之前和之后的若干帧来重构画面，可以在显著降低帧大小的同时保持视频的质量。压缩率相对于前面两种帧来说最优，但是因为需要缓存后面的帧来得到本帧画面，所以延时较高，不适合RTC（RealTime Communication，实时音视频）场景</li></ul></li></ul><h2 id="不同帧的选择">不同帧的选择</h2><p>在实际应用中，通常会混合使用I帧、P帧和B帧，由若干帧构成的一组能够独立播放的帧成为GOP（Groupof Pictures）。一个GOP开始于I帧，这个I帧被称为IDR帧（InstantaneousDecoder Refresh，即时解码刷新）。</p><p>在不同场景，GOP的设置不同。比如在视频点播场景中，延时不太重要，为了节省带宽，GOP中的B帧比例会比较高；而在直播场景中，为了降低延时通常就不会使用B帧；到了视频编辑场景，为了快速响应经常拖动的进度条，就会提高GOP中I帧的比例甚至全部使用I帧。</p><h1 id="直播推拉流协议">直播推拉流协议</h1><p>直播信息通常由CDN（Content DeliveryNetwork，内容分发网络）来进行传输，直播信息通过CDN边缘节点上传到CDN，之后经过CDN传输到客户端附近的CDN边缘节点，并最终将直播信息传输到客户端。</p><h2 id="视频封装格式">视频封装格式</h2><p>MP4和FLV是常见的两种视频封装格式。</p><p>MP4格式相对比较复杂，在文件开头有moov存储metadata、有mvhd存储视频时长等信息、有sbtl存储媒体数据索引和时间信息，等等，如下所示：</p><figure><img src="/illustration/live-stream/mp4-format.png" alt="MP4组织形式" /><figcaption aria-hidden="true">MP4组织形式</figcaption></figure><p>FLV格式则相对简单一些，由文件头（FLVHeader）和若干tag组成，也正是因此FLV格式文件通常不支持进度条拖动，FLV格式如下所示：</p><figure><img src="/illustration/live-stream/flv-format.png" alt="FLV组织形式" /><figcaption aria-hidden="true">FLV组织形式</figcaption></figure><h2 id="推拉流协议">推拉流协议</h2><p>直播需要进行推拉流操作，推流就是内容生产方将直播信息推送到CDN的过程，拉流就是内容消费方从CDN取得视频信息的过程，控制这些过程的协议被称为推拉流协议。</p><ul><li>RTMP（Real Time MessagingProtocol，实时消息协议）最初由Macromedia公司提出，后来被Adobe公司收购。该协议的优势是基于TCP协议，不必额外考虑网络质量引起的丢包等问题，并且延迟低（2s左右）、技术成熟；但是缺点是协议年代久远已经停止更新，规范上也没有支持H265视频编码格式，并且使用的是1935端口可能会被防火墙阻拦</li><li>HTTP-FLV顾名思义，这个协议是通过HTTP来传输FLV格式文件流来实现的，时延在2s左右</li><li>HLS（HTTP LiveStreaming）是由苹果公司提出的基于HTTP的流媒体传输协议，它的工作原理是把整个流分成一个个小文件来通过HTTP下载，每次只下载一部分。在下载时，允许客户端从多个数据源以不同速率下载同样的资源，允许客户端适应不同的数据传输速率。HLS协议的缺点是时延高于前面的两个协议，通常有10s以上的延迟</li></ul><h1 id="直播过程总结">直播过程总结</h1><ul><li>开播过程<ul><li>图像采集（摄像头、采集卡等产生图像信号）-&gt;图像处理（比如美颜、背景处理等，可选）-&gt;编码+封装-&gt;推流</li></ul></li><li>看播过程<ul><li>拉流-&gt;解封装+解码（将视频数据解码为RGB数据，可选硬件解码或软件解码）-&gt;图像处理（比如超分辨率通过算法提升分辨率，可选）-&gt;渲染（OpenGL、Vulkan等）</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>杂项</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>直播</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ART虚拟机介绍</title>
     <link href="/art-basic/"/>
     <url>/art-basic/</url>

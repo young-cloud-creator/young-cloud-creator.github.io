@@ -18,24 +18,24 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ART全称是Android Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。">
+    <meta name="description" content="直播技术涉及到视频协议、视频压缩以及视频信息采集处理、信息传输等多个技术，这里来逐一介绍这些技术和直播技术的原理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ART虚拟机介绍">
-<meta property="og:url" content="https://young-cloud-creator.github.io/art-basic/">
+<meta property="og:title" content="多媒体直播技术介绍">
+<meta property="og:url" content="https://young-cloud-creator.github.io/live-stream/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="ART全称是Android Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。">
+<meta property="og:description" content="直播技术涉及到视频协议、视频压缩以及视频信息采集处理、信息传输等多个技术，这里来逐一介绍这些技术和直播技术的原理。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/art-basic/index.png">
-<meta property="article:published_time" content="2022-08-18T14:04:12.370Z">
-<meta property="article:modified_time" content="2022-08-18T14:04:12.370Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/live-stream/index.png">
+<meta property="article:published_time" content="2022-08-19T14:12:12.589Z">
+<meta property="article:modified_time" content="2022-08-19T14:12:12.589Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="ART虚拟机">
+<meta property="article:tag" content="直播">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/art-basic/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/live-stream/index.png">
   
   
   
-  <title>ART虚拟机介绍 - Cloud Creator&#39;s Blog</title>
+  <title>多媒体直播技术介绍 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ART虚拟机介绍"></span>
+            <span id="subtitle" data-typed-text="多媒体直播技术介绍"></span>
           
         </div>
 
@@ -236,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-18 22:04" pubdate>
-          2022年8月18日 晚上
+        <time datetime="2022-08-19 22:12" pubdate>
+          2022年8月19日 晚上
         </time>
       </span>
     
@@ -305,92 +305,91 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ART虚拟机介绍</h1>
+            <h1 style="display: none">多媒体直播技术介绍</h1>
             
             
               <div class="markdown-body">
                 
-                <p>ART全称是Android
-Runtime，指的是为Android应用提供运行环境的虚拟机，所以叫ART虚拟机。ART最初是Dalvik虚拟机，从Android
-4.4开始逐渐抛弃Dalvik虚拟机进行针对性优化、引入新的特性，渐渐脱离Dalvik成为独一无二的ART虚拟机。</p>
-<h1 id="art整体架构">ART整体架构</h1>
-<p>ART整体分为Compiler&amp;Interpreter和Runtime两个部分，它们的具体内容如下：</p>
+                <p>直播技术涉及到视频协议、视频压缩以及视频信息采集处理、信息传输等多个技术，这里来逐一介绍这些技术和直播技术的原理。</p>
+<h1 id="视频的基本元素">视频的基本元素</h1>
+<p>首先来介绍一下视频的基础名词和概念。</p>
 <ul>
-<li>Complier&amp;Interpreter 负责对代码进行处理
-<ul>
-<li>解释器，用于解释执行字节码</li>
-<li>JIT Just-in-Time
-即时编译，在运行过程中将执行频率较高的函数编译为机器指令，从而提升运行速度和性能</li>
-<li>AOT Ahead-of-Time
-预先编译，在运行开始前对部分代码进行预先编译，从而提升运行速度和性能</li>
-</ul></li>
-<li>Runtime 提供对Java语言机制的支持
-<ul>
-<li>内存管理</li>
-<li>线程</li>
-<li>异常</li>
-<li>类管理</li>
-<li>JNI，Java Native Interface</li>
-<li>调试</li>
-<li>...</li>
-</ul></li>
+<li>像素：在一个数字序列表示的图像中的最小单位，通常表现为一个小方格。每个像素有自己的颜色值，一般用RGB三原色来表示。</li>
+<li>RGB三原色：将颜色使用R（红）、G（绿）、B（蓝）三个分量来表示，每个分量分为256个等级。</li>
+<li>分辨率：纵横方向的像素数量，一般表示为<code>宽*高</code>（<code>长*宽</code>）。</li>
+<li>码率/比特率：单位时间内传输的bit数量，单位为bps，表示单位时间播放连续的媒体（例如视频、音频）的bit数量。比特率过低会导致视频画面过度压缩、模糊不清，而高比特率则需要较高的网络带宽（如果是在线播放）。</li>
+<li>帧（Frame）：可以理解为视频中的每一个画面，整个视频是由许多静止画面（帧）组成的。</li>
+<li>帧率（Frame Rate）：每秒钟传输、播放的画面数，单位为FPS（Frame per
+Second）。通常而言，帧率越高，视频所显示的动作就越流畅，当帧率过低时，人眼就会察觉到视频的卡顿。</li>
+<li>轨道/流：视频不仅有图像信息，通常还会有音频信息，有时可能还会有字幕信息。这些信息就存放在不同的轨道中，形成视频流、音频流。</li>
 </ul>
-<h1 id="art对象分配">ART对象分配</h1>
-<p>在面向对象编程中，程序会创建许多个对象。在Android中，这些对象就需要由ART来分配合理的内存资源，在对象销毁时进行内存资源的回收和清理。</p>
-<p>创建对象需要有类的定义，类定义决定着一个对象的大小（内存布局，比如类成员的大小和分布）和行为（函数信息）。在Java中，所有类都继承自<code>Object</code>类，在<code>Object</code>类中，有一个<code>klass_</code>成员负责该对象所属类的类对象，还有一个<code>monitor_</code>成员负责存储Hash
-Code和锁信息。</p>
-<h2 id="类管理">类管理</h2>
-<p>对于某个类的一个对象，它分配到的空间取决于继承链，继承链上的所有成员都会被分配空间。在Java中，当类第一次被使用时，将会进行该类的加载。</p>
-<h2 id="内存分配">内存分配</h2>
-<p>Android应用的内存分配是由ART虚拟机来处理的，也就是说应用的内存申请并不是向操作系统提出，而是向虚拟机提出，虚拟机则负责对OS内存的占用和布局。如下所示，</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Text">--------------------------------------<br>                 APP<br>--------------------------------------<br>-----------------------  -------------<br>      ART VM Heap         Native Heap<br>-----------------------  -------------<br>--------------------------------------<br>         Linux Kernel 内存管理<br>--------------------------------------<br></code></pre></td></tr></table></figure>
-<p>ART虚拟机使用不同的分配器来分配内存，对于不同的内存申请使用合适的内存分配器。ART的内存分配器有以下几种：</p>
+<h1 id="视频压缩">视频压缩</h1>
+<p>如果不进行视频压缩，而是将所有的帧原原本本的完整存放在文件中，那么一个稍长的视频文件大小将会非常大。为了节省存储空间，就需要进行视频压缩。</p>
+<h2 id="帧内压缩">帧内压缩</h2>
+<p>帧内压缩（Intraframe Compression）也叫空间压缩（Spatial
+Compression），是通过对单独的一帧进行压缩而实现的，这种压缩类似于静态图像压缩，一般会采取有损压缩算法（比如把多个像素的颜色信息压缩为一个颜色信息，以损失一部分颜色信息为代价换取空间），通常压缩比不高。</p>
 <ul>
-<li>TLAB
+<li>I-frame：Intra-frame，帧内帧
 <ul>
-<li>相当于局部Cache，分配速度快，但是体积小</li>
-</ul></li>
-<li>ROSallocator
-<ul>
-<li>内存体积中等，从VM mem pool中分配内存</li>
-</ul></li>
-<li>LOSallocator
-<ul>
-<li>申请的内存体积较大，虚拟机将向Linux系统申请内存并分配</li>
+<li>只进行帧内压缩或者不压缩，解码时只需要自身信息就能重构该帧的完整图像，不需要参考其他帧的信息，数据信息量较大，压缩率较低</li>
 </ul></li>
 </ul>
-<h2 id="内存回收">内存回收</h2>
-<p>当对象不再被使用时，自然需要销毁对象，回收分配给它的内存资源，这就是内存回收。常见的内存回收机制有两种：GC和RC。</p>
+<h2 id="帧间压缩">帧间压缩</h2>
+<p>帧间压缩（Interframe Compression）也叫时间压缩（Temporal
+Compression），是基于视频前后两帧一般具有较高相关性（存在冗余信息）的特点实现的。在帧间压缩中，有下面几种类型的帧：</p>
 <ul>
-<li>GC机制全称Garbage
-Collection（垃圾回收），这种机制的做法是定期（或者根据某些条件）查找系统中不用的对象并释放内存。</li>
-<li>RC机制全称Reference
-Counting（引用计数），这种机制与GC不同，它对每一个对象进行引用计数，当计数为0时说明不再有引用者使用该对象，于是销毁对象释放内存。</li>
-</ul>
-<p>Android系统采用GC机制进行内存回收，而IOS的Swift采用RC机制进行内存回收。两种方式各有优劣，GC机制因为不能及时回收内存，所以应用的内存占用较大；而RC机制则无法直接回收两个相互引用（或者多个对象形成环引用）但是无用的对象的内存。</p>
-<p>在ART的内存回收机制中，对象的引用被分为强引用、软引用和弱引用。强引用不会被回收，软引用会在内存不足时被回收，而弱引用在GC被触发时就会被回收。GC的触发策略不同固件厂商各不相同，通常来说包括内存不足、VM占用内存到达某个警戒值或者其他条件（比如锁屏若干时间后触发GC回收内存）。</p>
-<p>要进行GC，就要确定对象是否可以被回收，于是这里引入<strong>GC
-roots</strong>的概念。GC
-roots是指一些特殊的栈、引用或者静态变量，在GC时从这些roots出发进行遍历，并把所有遍历到的对象打上标记（mark），遍历完成后所有未被mark的对象就是孤立对象，这些无用的对象将会被回收。在进行内存回收时，有两种做法：</p>
+<li>P-frame：Predicted Frame，前向预测帧
 <ul>
-<li>Tracing GC 直接将所有未被mark的对象的内存</li>
-<li>Coping GC
-这里先介绍一下内存碎片：因为各个应用每次申请的内存总是大小不一，所以久而久之会产生了内存碎片化问题，也就是有许多小的空闲内存块，但是缺少较大的完整内存块，从而难以满足较大体积的内存需求。Coping
-GC将mark过的对象拷贝集中到一个区域，然后释放之前的整块内存空间，从而消除了一部分内存碎片</li>
-</ul>
-<p>在ART的内存回收策略中，前台GC（对前台应用进行的GC）采用Tracing
-GC的方式进行，以避免影响应用使用；后台GC（对后台进程，例如Service，进行的GC）采用Coping
-GC的方式，以避免内存碎片产生。</p>
-<h1 id="art执行方式">ART执行方式</h1>
-<p>在ART虚拟机，代码有三种执行方式，分别是：</p>
+<li>解码时必须借助于前面的帧信息，该帧存储的是与前面帧的差值，需要前面的I帧或者P帧才能重构出画面，压缩比较高</li>
+</ul></li>
+<li>B-frame：Bi-Directional Frame，双向预测帧
 <ul>
-<li>解释执行，解释执行字节码</li>
-<li>JIT，在解释执行同时对函数进行打分，分数高（取决于打分策略）的函数将被编译为机器指令，从而提高之后执行该函数的速度</li>
-<li>AOT，以dex为单位进行预先编译，并将编译后的机器指令持久化存储下来，每次执行到相应部分时直接执行机器指令而无需解释执行字节码</li>
+<li>参考在自己之前和之后的若干帧来重构画面，可以在显著降低帧大小的同时保持视频的质量。压缩率相对于前面两种帧来说最优，但是因为需要缓存后面的帧来得到本帧画面，所以延时较高，不适合RTC（Real
+Time Communication，实时音视频）场景</li>
+</ul></li>
 </ul>
-<h2 id="art栈管理">ART栈管理</h2>
-<p>对于解释执行的部分，栈托管到虚拟机完成；对于编译过的部分，栈管理与native代码一致，遵循对应指令集的压栈约定。</p>
-<p>对于解释执行和编译执行的切换，ART采用trampoline-bridge机制来进行。</p>
+<h2 id="不同帧的选择">不同帧的选择</h2>
+<p>在实际应用中，通常会混合使用I帧、P帧和B帧，由若干帧构成的一组能够独立播放的帧成为GOP（Group
+of Pictures）。一个GOP开始于I帧，这个I帧被称为IDR帧（Instantaneous
+Decoder Refresh，即时解码刷新）。</p>
+<p>在不同场景，GOP的设置不同。比如在视频点播场景中，延时不太重要，为了节省带宽，GOP中的B帧比例会比较高；而在直播场景中，为了降低延时通常就不会使用B帧；到了视频编辑场景，为了快速响应经常拖动的进度条，就会提高GOP中I帧的比例甚至全部使用I帧。</p>
+<h1 id="直播推拉流协议">直播推拉流协议</h1>
+<p>直播信息通常由CDN（Content Delivery
+Network，内容分发网络）来进行传输，直播信息通过CDN边缘节点上传到CDN，之后经过CDN传输到客户端附近的CDN边缘节点，并最终将直播信息传输到客户端。</p>
+<h2 id="视频封装格式">视频封装格式</h2>
+<p>MP4和FLV是常见的两种视频封装格式。</p>
+<p>MP4格式相对比较复杂，在文件开头有moov存储metadata、有mvhd存储视频时长等信息、有sbtl存储媒体数据索引和时间信息，等等，如下所示：</p>
+<figure>
+<img src="/illustration/live-stream/mp4-format.png" srcset="/img/loading.gif" lazyload alt="MP4组织形式" />
+<figcaption aria-hidden="true">MP4组织形式</figcaption>
+</figure>
+<p>FLV格式则相对简单一些，由文件头（FLV
+Header）和若干tag组成，也正是因此FLV格式文件通常不支持进度条拖动，FLV格式如下所示：</p>
+<figure>
+<img src="/illustration/live-stream/flv-format.png" srcset="/img/loading.gif" lazyload alt="FLV组织形式" />
+<figcaption aria-hidden="true">FLV组织形式</figcaption>
+</figure>
+<h2 id="推拉流协议">推拉流协议</h2>
+<p>直播需要进行推拉流操作，推流就是内容生产方将直播信息推送到CDN的过程，拉流就是内容消费方从CDN取得视频信息的过程，控制这些过程的协议被称为推拉流协议。</p>
+<ul>
+<li>RTMP（Real Time Messaging
+Protocol，实时消息协议）最初由Macromedia公司提出，后来被Adobe公司收购。该协议的优势是基于TCP协议，不必额外考虑网络质量引起的丢包等问题，并且延迟低（2s左右）、技术成熟；但是缺点是协议年代久远已经停止更新，规范上也没有支持H265视频编码格式，并且使用的是1935端口可能会被防火墙阻拦</li>
+<li>HTTP-FLV
+顾名思义，这个协议是通过HTTP来传输FLV格式文件流来实现的，时延在2s左右</li>
+<li>HLS（HTTP Live
+Streaming）是由苹果公司提出的基于HTTP的流媒体传输协议，它的工作原理是把整个流分成一个个小文件来通过HTTP下载，每次只下载一部分。在下载时，允许客户端从多个数据源以不同速率下载同样的资源，允许客户端适应不同的数据传输速率。HLS协议的缺点是时延高于前面的两个协议，通常有10s以上的延迟</li>
+</ul>
+<h1 id="直播过程总结">直播过程总结</h1>
+<ul>
+<li>开播过程
+<ul>
+<li>图像采集（摄像头、采集卡等产生图像信号）-&gt;图像处理（比如美颜、背景处理等，可选）-&gt;编码+封装-&gt;推流</li>
+</ul></li>
+<li>看播过程
+<ul>
+<li>拉流-&gt;解封装+解码（将视频数据解码为RGB数据，可选硬件解码或软件解码）-&gt;图像处理（比如超分辨率通过算法提升分辨率，可选）-&gt;渲染（OpenGL、Vulkan等）</li>
+</ul></li>
+</ul>
 
                 
               </div>
@@ -409,7 +408,7 @@ GC的方式，以避免内存碎片产生。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/Android/" class="category-chain-item">Android</a>
+  <a href="/categories/%E6%9D%82%E9%A1%B9/" class="category-chain-item">杂项</a>
   
   
 
@@ -424,7 +423,7 @@ GC的方式，以避免内存碎片产生。</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ART%E8%99%9A%E6%8B%9F%E6%9C%BA/">#ART虚拟机</a>
+        <a href="/tags/%E7%9B%B4%E6%92%AD/">#直播</a>
       
     </div>
   
@@ -436,8 +435,8 @@ GC的方式，以避免内存碎片产生。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ART虚拟机介绍</div>
-      <div>https://young-cloud-creator.github.io/art-basic/</div>
+      <div>多媒体直播技术介绍</div>
+      <div>https://young-cloud-creator.github.io/live-stream/</div>
     </div>
     <div class="license-meta">
       
@@ -449,7 +448,7 @@ GC的方式，以避免内存碎片产生。</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月18日</div>
+          <div>2022年8月19日</div>
         </div>
       
       
@@ -491,18 +490,12 @@ GC的方式，以避免内存碎片产生。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/live-stream/" title="多媒体直播技术介绍">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">多媒体直播技术介绍</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/software-architecture/" title="客户端架构设计与应用">
-                        <span class="hidden-mobile">客户端架构设计与应用</span>
+                      <a href="/art-basic/" title="ART虚拟机介绍">
+                        <span class="hidden-mobile">ART虚拟机介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
