@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>青训营课程备忘录</title>
+    <link href="/android-camp/"/>
+    <url>/android-camp/</url>
+    
+    <content type="html"><![CDATA[<ul><li>课件<ul><li>Android系统及客户端概览<ul><li>https://bytedance.feishu.cn/file/boxcntg9ODycSnohqxvnxnsPSib</li></ul></li><li>客户端基础知识必备<ul><li>https://bytedance.feishu.cn/file/boxcnbVAyWfkXYvuKceYvkjP4cf</li></ul></li><li>常规 &amp; 高级UI编程<ul><li>https://bytedance.feishu.cn/file/boxcnWteLLzg9wTQm42T0AJ5OEg</li></ul></li><li>数据存储 &amp; 网络通信<ul><li>https://bytedance.feishu.cn/file/boxcnGNmmcmZPHwa1gVvYDkPRJf</li></ul></li><li>探索多媒体直播技术<ul><li>https://bytedance.feishu.cn/file/boxcnbjKbNM9og2rkY1RdiPd5ng</li></ul></li><li>端智能技术演进及实践<ul><li>https://bytedance.feishu.cn/file/boxcn0mC7wwFySmJDXzmSCQqIrb</li></ul></li><li>初识性能优化及工具<ul><li>https://bytedance.feishu.cn/file/boxcnpuZkMnN2YlR2sus4OLUuAb</li></ul></li><li>打开ART虚拟机的大门<ul><li>https://bytedance.feishu.cn/file/boxcnPhd70kV2NolKSAm0jL1u6k</li></ul></li><li>客户端架构设计及应用<ul><li>https://bytedance.feishu.cn/file/boxcniKiKFmBpZQ6SLm6rmj4AHd</li></ul></li><li>成为一名好RD，你该具备的研发素养<ul><li>https://bytedance.feishu.cn/file/boxcnawlG7yeG2mocPxgjTpGjVg</li></ul></li></ul></li><li>配套资料<ul><li>Android 客户端专场 学习资料一<ul><li>https://juejin.cn/post/7122710954457956383</li></ul></li><li>Android 客户端专场 学习资料二<ul><li>https://juejin.cn/post/7123453378176221215</li></ul></li><li>Android 客户端专场 学习资料三<ul><li>https://juejin.cn/post/7123529478558613512</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>杂项</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>多媒体直播技术介绍</title>
     <link href="/live-stream/"/>
     <url>/live-stream/</url>
