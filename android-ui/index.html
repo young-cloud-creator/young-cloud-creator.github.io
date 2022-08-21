@@ -18,25 +18,25 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="性能优化，顾名思义就是对软件的运行性能进行优化。在Android开发中，性能优化可以是对应用耗电的优化、可以是对应用启动速度的优化、也可以是对应用流畅度的优化，等等。这里介绍性能优化的原因、概念以及常用的性能优化工具和做法。">
+    <meta name="description" content="在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android性能优化介绍">
-<meta property="og:url" content="https://young-cloud-creator.github.io/android-performance/">
+<meta property="og:title" content="Android常规&amp;高级UI编程">
+<meta property="og:url" content="https://young-cloud-creator.github.io/android-ui/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="性能优化，顾名思义就是对软件的运行性能进行优化。在Android开发中，性能优化可以是对应用耗电的优化、可以是对应用启动速度的优化、也可以是对应用流畅度的优化，等等。这里介绍性能优化的原因、概念以及常用的性能优化工具和做法。">
+<meta property="og:description" content="在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-performance/index.png">
-<meta property="article:published_time" content="2022-08-20T15:03:07.012Z">
-<meta property="article:modified_time" content="2022-08-20T15:03:07.012Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-ui/index.png">
+<meta property="article:published_time" content="2022-08-21T14:47:38.618Z">
+<meta property="article:modified_time" content="2022-08-21T14:47:38.618Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="性能优化">
+<meta property="article:tag" content="布局">
+<meta property="article:tag" content="动画">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/android-performance/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/android-ui/index.png">
   
   
   
-  <title>Android性能优化介绍 - Cloud Creator&#39;s Blog</title>
+  <title>Android常规&amp;高级UI编程 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Android性能优化介绍"></span>
+            <span id="subtitle" data-typed-text="Android常规&amp;高级UI编程"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-20 23:03" pubdate>
-          2022年8月20日 晚上
+        <time datetime="2022-08-21 22:47" pubdate>
+          2022年8月21日 晚上
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.8k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          17 分钟
+          15 分钟
         
       </span>
     
@@ -306,134 +306,123 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Android性能优化介绍</h1>
+            <h1 style="display: none">Android常规&amp;高级UI编程</h1>
             
             
               <div class="markdown-body">
                 
-                <p>性能优化，顾名思义就是对软件的运行性能进行优化。在Android开发中，性能优化可以是对应用耗电的优化、可以是对应用启动速度的优化、也可以是对应用流畅度的优化，等等。这里介绍性能优化的原因、概念以及常用的性能优化工具和做法。</p>
-<h1 id="为什么要做性能优化">为什么要做性能优化</h1>
+                <p>在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。</p>
+<h1 id="ui组件">UI组件</h1>
+<p>Android应用的UI界面就是由一个个UI组件构成的，Android
+SDK提供了大量UI组件供开发者选择，当然开发者也可以选择自定义UI组件。这里介绍一些常用的UI组件：</p>
 <ul>
-<li>性能优化带来体验的改善，进而帮助业务指标的提升
+<li>TextView
 <ul>
-<li>对应用性能优化，比如更加流畅顺滑/更省电，就可能提升用户量</li>
+<li>文本组件，用于展示文本，可以设置文字的大小、颜色等信息</li>
+<li>位于android.widget.TextView</li>
 </ul></li>
-<li>缓解机器性能瓶颈问题
+<li>ImageView
 <ul>
-<li>随着机器性能提升速度的放缓，性能优化可以在相同性能下带来更好的体验</li>
+<li>图片组件，用于展示图片，可以设置图片的展示方式，比如居中拉伸、居中裁剪等等</li>
+<li>位于android.widget.ImageView</li>
 </ul></li>
-<li>缓解移动端电池技术瓶颈
+<li>Button
 <ul>
-<li>用有限的电量做更多的事/获得更好的体验</li>
+<li>按钮组件，用于放置一个按钮，可以设置按钮的大小、按钮上的信息等</li>
+<li>位于android.widget.Button</li>
+</ul></li>
+<li>EditText
+<ul>
+<li>输入框组件，用于放置一个输入框，可以设置输入框的内容（数字、文本等）、输入框的提示信息、输入框的自动填充类型等</li>
+<li>位于android.widget.EditText</li>
+</ul></li>
+<li>CheckBox
+<ul>
+<li>复选框组件，用于放置一个复选框，可以设置默认是否被勾选等</li>
+<li>位于android.widget.CheckBox</li>
+</ul></li>
+<li>RadioButton
+<ul>
+<li>单选按钮，通常与RadioButtonGroup一起使用得到一组互斥的选择按钮，可以设置默认是否选中等。</li>
+<li>位于android.widget.RadioButton</li>
 </ul></li>
 <li>...</li>
 </ul>
-<h1 id="什么是性能优化">什么是性能优化</h1>
-<p>性能优化的目标主要有三个：快、稳、省。快，就是提升应用速度，比如启动速度、响应速度等，从而让体验更流畅；稳，就是提升应用的稳定性，减少各种原因的crash、无响应；省，就是减少各种资源的使用，比如电池、网络流量等，以期用最小的负载获得最大的收益。下面具体介绍性能优化的分类。</p>
-<h2 id="流畅性优化">流畅性优化</h2>
-<p>对于Android应用，每个应用进程都有一个Main
-Thread（主线程），这个线程负责UI绘制、系统事件处理等任务。主线程的UI绘制会每隔一段时间（这个时间由VSync信号控制，每当收到VSync信号时就应当进行一次绘制）执行一次从而实现屏幕刷新（在60Hz刷新率下，大约每16ms执行一次UI
-Drawing）。如果应用出现了卡顿现象，就说明UI绘制没能正常执行，一般有下面几种情况：</p>
+<p>对于大多数UI组件，它们都有下面的一些属性：</p>
 <ul>
-<li>在主线程中放入了较重的业务逻辑，导致主线程忙于执行这部分代码而没能按时进行UI绘制，在业务逻辑执行完成后再进行UI绘制，造成卡顿的现象（等待一段时间后屏幕才响应，出现“划不动”的情况）</li>
-<li>主线程忙于处理输入事件（或者其他任务）而未能进行UI绘制，导致丢帧（画面跳跃不连贯）</li>
+<li>id
+<ul>
+<li>设置id，从而能够唯一地标识该组件，一般为“@+id/bala_bala”的形式</li>
+</ul></li>
+<li>height
+<ul>
+<li>设置组件高度</li>
+</ul></li>
+<li>width
+<ul>
+<li>设置组件宽度</li>
+</ul></li>
+<li>margin
+<ul>
+<li>设置组件的外边距，也就是组件和其他组件的距离</li>
+<li>左右边距、上下边距都可以单独设置</li>
+</ul></li>
+<li>padding
+<ul>
+<li>设置组件的内边距，也就是组件内部元素到组件边缘的距离，比如文本组件的内边距就是文字到组件边缘的距离</li>
+<li>左右边距、上下边距都可以单独设置</li>
+</ul></li>
+<li>gravity
+<ul>
+<li>设置组件相对于父容器的对齐方式，有居中、左对齐、右对齐等方式</li>
+</ul></li>
 <li>...</li>
 </ul>
-<p>因此为了保证UI绘制不被各种原因打断、延迟，最好将耗时的业务代码/输入事件放在其他线程，让主线程专注于UI绘制任务。</p>
-<p>前面提到UI绘制是由VSync信号控制的，每次收到VSync信号时主线程就应当刷新一次屏幕（进行UI绘制）。如果没有VSync信号，而是由CPU自行决定绘制时机，就可能导致画面撕裂问题（CPU在短时间内进行了两次不同画面的绘制，上一帧尚未渲染完成就绘制下一帧，导致屏幕画面各个部分属于多个不同帧产生撕裂）</p>
-<h2 id="资源优化">资源优化</h2>
-<p>这里的资源指的是Android设备上的各种软件和硬件资源，比如存储、流量、电池、内存、系统参数等。资源可以粗略分为端侧资源和服务侧资源两个方面，具体如下：</p>
+<p>除了上面提到的像TextView一类的常规UI组件，组件容器也是一种UI组件，常见的UI组件包括LinearLayout、ConstraintLayout等布局容器组件，ListView、RecyclerView等列表组件以及ViewPager等分页组件，等等。</p>
+<h1 id="ui布局">UI布局</h1>
+<p>有了各种组件，就需要一个容器来摆放这些组件，规定它们的大小、位置、层级等信息。这个容器就是布局容器，常用的布局容器有LinearLayout、RelativeLayout、FrameLayout、ConstraintLayout几种容器：</p>
 <ul>
-<li>端侧资源
+<li>LinearLayout
 <ul>
-<li>内存</li>
-<li>CPU</li>
-<li>GPU</li>
-<li>存储</li>
-<li>网络</li>
-<li>亮度</li>
-<li>声音</li>
-<li>...</li>
+<li>线性布局，按照水平或垂直方向排列UI组件，所有子视图在单个方向保持对齐</li>
 </ul></li>
-<li>服务侧资源
+<li>RelativeLayout
 <ul>
-<li>CDN带宽</li>
-<li>API流量</li>
-<li>...</li>
+<li>相对布局，布局内的组件通过相对于父容器/兄弟组件的位置来排列，从而减少布局的嵌套，提高复杂场景的布局性能</li>
+</ul></li>
+<li>FrameLayout
+<ul>
+<li>以层级叠加的方式排列组件，不同于之前的布局，该布局是在Z轴方向上进行的，适用于多层叠加场景（例如：前景图和背景图的叠加）</li>
+</ul></li>
+<li>ConstraintLayout
+<ul>
+<li>约束布局，组件的位置取决于约束条件，可以使用扁平无嵌套的方式实现较复杂的布局</li>
 </ul></li>
 </ul>
-<p>这方面的优化包括应用颜色选择（在OLED屏幕上黑色部分不发光，因此黑色系比其他颜色更省电）、算法优化（减轻处理器负担）、资源压缩（降低网络流量消耗）等措施。</p>
-<h2 id="稳定性优化">稳定性优化</h2>
-<p>应用稳定性可以从崩溃（Crash）和超时两个方面考虑。崩溃带来的一般就是应用闪退，而超时则通常带来轻则卡顿掉帧、重则ANR（Application
-Not Responding，应用无响应，当主线程阻塞过长时间时会被触发）。</p>
-<h2 id="系统级优化">系统级优化</h2>
-<p>这方面主要取决于移动操作系统和硬件厂商对系统的优化，比如优化ART虚拟机、引入ZRAM技术、优化处理器调度等等。</p>
-<h1 id="性能监控工具">性能监控工具</h1>
-<p>要进行性能优化，首先要找到优化点，一个普遍的做法就是利用性能监控工具找到应用的薄弱点，然后针对性的进行性能优化。除了指导性能优化方向外，性能监控工具还能帮助发现服务提供商的劣化问题（比如发现厂商对应用进行了负优化），及时止损。下面介绍一些常用的性能监控工具。</p>
+<h1 id="ui动画">UI动画</h1>
+<p>在设计应用交互时，合适的动画能带来体验的巨大提升。相较于直接画面的突兀变化，通过动画进行的渐进式变化更符合人的审美要求。在Android中，系统提供了帧动画、补间动画和属性动画三种动画形式。</p>
 <ul>
-<li>GPU呈现模式
+<li>帧动画
 <ul>
-<li>系统集成的工具，无需二次开发。系统记录每一帧的数据并通过图形方式呈现</li>
+<li>作用于View类对象</li>
+<li>原理类似于GIF，即通过按照指定顺序和间隔播放一组图片（帧）实现的动画</li>
+<li>优点是使用简单方便，缺点是功能单一（需要设置每一帧的画面）、容易OOM（Out
+of Memory，因为帧动画需要存储每一帧画面）</li>
 </ul></li>
-<li>Layertool
+<li>补间动画
 <ul>
-<li>输出View层级关系，帮助分析overdraw问题</li>
+<li>作用于View类对象</li>
+<li>原理是确定开始和结束时的视图样式后，由插值器确定中间过程的样式，从而形成完整动画</li>
+<li>有透明度动画、旋转动画、缩放动画和平移动画四种类型，可以单独使用也可以组合使用</li>
+<li>优点是简单方便，缺点是效果单一、自定义程度低</li>
 </ul></li>
-<li>CPU Profiler
+<li>属性动画
 <ul>
-<li>基于JVMTI输出完整的方法调用栈，也支持方法的耗时检测</li>
-</ul></li>
-<li>TraceView</li>
-<li>Systrace</li>
-<li>Rhea
-<ul>
-<li>字节跳动自研工具，性能损耗小</li>
-</ul></li>
-<li>Battery Historian
-<ul>
-<li>应用功耗统计</li>
+<li>可以作用于任意Java对象</li>
+<li>原理是在指定时间间隔内，不断改变对象属性的值，从而实现动画效果</li>
+<li>相较于前面的两种动画，属性动画扩充了动画的作用范围，同时能够实现丰富的动画效果</li>
 </ul></li>
 </ul>
-<h1 id="如何进行性能优化">如何进行性能优化</h1>
-<p>要对应用进行性能优化，要先进行现状分析，然后根据分析结果制定优化策略。</p>
-<h2 id="现状分析">现状分析</h2>
-<p>现状分析是为了找出性能优化点，一般可以从耗时成因、运行环境、渲染分析、等方面进行。</p>
-<ul>
-<li>耗时成因
-<ul>
-<li>CPU Time
-<ul>
-<li>循环、反射、序列化/反序列化、类解析等</li>
-</ul></li>
-<li>IO Wait
-<ul>
-<li>IO操作、等待IO操作返回结果</li>
-</ul></li>
-<li>IPC
-<ul>
-<li>进程间通信，比如Binder调用</li>
-</ul></li>
-<li>Lock Wait
-<ul>
-<li>主线程在等锁，导致超时无响应</li>
-</ul></li>
-<li>CPU Schedule
-<ul>
-<li>CPU调度策略有问题导致主线程获取不到CPU资源</li>
-</ul></li>
-</ul></li>
-<li>运行环境
-<ul>
-<li>根据不同的运行环境（前台/后台/是否是主线程）采用不同的策略</li>
-</ul></li>
-<li>渲染分析
-<ul>
-<li>渲染耗时点</li>
-<li>渲染频率</li>
-</ul></li>
-</ul>
-<h2 id="优化策略">优化策略</h2>
-<p>比如采用预加载来构建UI组件、使用更高效的数据协议（比如json-&gt;protobuf）和数据解析器、异步渲染，等等。</p>
 
                 
               </div>
@@ -467,9 +456,9 @@ Not Responding，应用无响应，当主线程阻塞过长时间时会被触发
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Android/">#Android</a>
+        <a href="/tags/%E5%B8%83%E5%B1%80/">#布局</a>
       
-        <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
+        <a href="/tags/%E5%8A%A8%E7%94%BB/">#动画</a>
       
     </div>
   
@@ -481,8 +470,8 @@ Not Responding，应用无响应，当主线程阻塞过长时间时会被触发
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Android性能优化介绍</div>
-      <div>https://young-cloud-creator.github.io/android-performance/</div>
+      <div>Android常规&amp;高级UI编程</div>
+      <div>https://young-cloud-creator.github.io/android-ui/</div>
     </div>
     <div class="license-meta">
       
@@ -494,7 +483,7 @@ Not Responding，应用无响应，当主线程阻塞过长时间时会被触发
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月20日</div>
+          <div>2022年8月21日</div>
         </div>
       
       
@@ -536,18 +525,12 @@ Not Responding，应用无响应，当主线程阻塞过长时间时会被触发
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/android-ui/" title="Android常规&amp;高级UI编程">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Android常规&amp;高级UI编程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/android-camp/" title="青训营课程备忘录">
-                        <span class="hidden-mobile">青训营课程备忘录</span>
+                      <a href="/android-performance/" title="Android性能优化介绍">
+                        <span class="hidden-mobile">Android性能优化介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
