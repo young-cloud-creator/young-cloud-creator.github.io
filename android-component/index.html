@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-component/index.png">
 <meta property="article:published_time" content="2022-07-28T14:50:27.009Z">
-<meta property="article:modified_time" content="2022-07-30T11:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T16:50:00.000Z">
 <meta property="article:author" content="Young Cloud Creator">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.5k 字
+          8.1k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          47 分钟
+          68 分钟
         
       </span>
     
@@ -310,7 +310,7 @@
               <p class="note note-primary">
                 
                   
-                    本文最后更新于：2022年7月30日 晚上
+                    本文最后更新于：2022年8月23日 凌晨
                   
                 
               </p>
@@ -515,6 +515,84 @@ Service与Activity之间通信的几种方式</a></p>
 <li>在<code>Service</code>类中发送广播</li>
 <li>在Activity类中实现广播接收器并注册广播</li>
 </ol></li>
+</ul>
+<h2 id="广播组件-broadcast">广播组件 Broadcast</h2>
+<p>广播（Broadcast）是Android系统中的一种进程间通信的手段。Android应用与Android系统、Android应用之间都可以相互收发广播消息，例如，Android系统会在各种系统事件发生时发送广播，像网络状态发生改变、开始充电等，Android应用也可以自定义广播并发送，从而实现进程间通信。</p>
+<p>在Android中，存在两种Broadcast：</p>
+<ul>
+<li>标准广播（无序广播）：这是一种完全异步执行的广播，效率较高，在广播发出后，所有广播接收者都会几乎在同时收到广播信息</li>
+<li>有序广播：这是一种同步执行的广播，同一时刻只会有一个广播接收者收到广播信息，并会在广播接收者执行完成处理逻辑之后才会传送给下一个广播接收者。有序广播会按照广播接收者的优先级来传送，优先级高的接收者优先接收广播。除此之外，广播接收者可以选择拦截广播，使广播不再继续传播。</li>
+</ul>
+<h3 id="基本用法">基本用法</h3>
+<p>广播接收者需要注册自己要接收的广播，在广播发出后，Android系统将会自动把广播信息推送给接收者。接收广播需要借助于BroadcastReceiver类来进行，通常做法是定义一个BroadcastReceiver的子类，并在其中写下广播处理逻辑。</p>
+<h4 id="接收广播">接收广播</h4>
+<p>有两种注册广播接收器的方法，分别是通过AndroidManifest文件进行静态注册和通过Java或Kotlin代码动态注册：</p>
+<ul>
+<li>静态注册
+<ul>
+<li>如下所示，其中<code>&lt;intent-filter&gt;</code>中的内容指定了接收器要接收的广播信息
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs XML"><span class="hljs-tag">&lt;<span class="hljs-name">receiver</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.MyBroadcastReceiver&quot;</span>  <span class="hljs-attr">android:exported</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.action.INPUT_METHOD_CHANGED&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">receiver</span>&gt;</span><br><br></code></pre></td></tr></table></figure></li>
+<li>在AndroidManifest文件中进行定义后，还需要在Kotlin或者Java代码文件中创建对应的BroadcastReceiver子类，例如上面的AndroidManifest文件中的<code>android:name</code>属性为<code>.MyBroadcastReceiver</code>，就需要创建一个名为<code>MyBroadcastReceiver</code>的BroadcastReceiver子类来接收定义的广播，如下所示
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBroadcastReceiver</span> : <span class="hljs-type">BroadcastReceiver</span></span>() &#123;<br><br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onReceive</span><span class="hljs-params">(context: <span class="hljs-type">Context</span>, intent: <span class="hljs-type">Intent</span>)</span></span> &#123;<br>        <span class="hljs-comment">//广播处理逻辑</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li>动态注册
+<ul>
+<li>除了上面的静态注册，还可以直接在Kotlin或Java代码中进行动态注册，而无需在AndroidManifest文件中定义。具体做法是，首先创建一个BroadcastReceiver（或者它的子类）的实例，然后创建<code>IntentFilter</code>并调用<code>registerReceiver(BroadcastReceiver, IntentFilter)</code>就成功注册广播接收器了，如下所示
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> br: BroadcastReceiver = MyBroadcastReceiver()<br><span class="hljs-keyword">val</span> filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply &#123;<br>    addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED) &#125;<br>registerReceiver(br, filter)<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<p>在不需要接收之前注册的广播时，可以使用<code>unregisterReceiver(android.content.BroadcastReceiver)</code>来取消注册广播接收器。此外，如果是通过动态注册的方式注册了广播接收器，还需要在Activity生命周期结束时（<code>onDestroy()方法中</code>）取消注册广播接收器，否则将会导致接收器资源泄露的问题。</p>
+<h4 id="发送广播">发送广播</h4>
+<p>Android提供三种发送广播的方法，分别是<code>sendBroadcast(Intent)</code>、<code>sendOrderedBroadcast(Intent, String)</code>和<code>LocalBroadcastManager.sendBroadcast</code></p>
+<ul>
+<li><code>sendBroadcast(Intent)</code>
+<ul>
+<li>发送标准广播，例如 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin">Intent().also &#123; intent -&gt;<br>    intent.setAction(<span class="hljs-string">&quot;com.example.broadcast.MY_NOTIFICATION&quot;</span>)<br>    intent.putExtra(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;Notice me senpai!&quot;</span>)<br>    sendBroadcast(intent)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li><code>sendOrderedBroadcast(Intent, String)</code>
+<ul>
+<li>发送有序广播</li>
+</ul></li>
+<li><code>LocalBroadcastManager.sendBroadcast(Intent)</code>
+<ul>
+<li>发送本地广播，这种广播只会发送给与发送方位于同一应用的广播接收器，而不会发送给其他应用</li>
+</ul></li>
+</ul>
+<h3 id="常用系统广播">常用系统广播</h3>
+<ul>
+<li>Intent.ACTION_CONNECTIVITY_CHANGE
+<ul>
+<li>网络状态发生改变</li>
+</ul></li>
+<li>Intent.ACTION_BATTERY_CHANGED
+<ul>
+<li>充电状态、电池电量发生变化</li>
+</ul></li>
+<li>Intent.ACTION_SCREEN_ON
+<ul>
+<li>屏幕打开</li>
+</ul></li>
+<li>Intent.ACTION_SCREEN_OFF
+<ul>
+<li>屏幕关闭</li>
+</ul></li>
+<li>Intent.ACTION_PACKAGE_INSTALL
+<ul>
+<li>应用程序开始安装</li>
+</ul></li>
+<li>Intent.ACTION_BOOT_COMPLETED
+<ul>
+<li>系统启动完成</li>
+</ul></li>
+<li>Intent.ACTION_PACKAGE_ADDED
+<ul>
+<li>应用程序完成安装</li>
+</ul></li>
+<li>Intent.ACTION_PACKAGE_REMOVED
+<ul>
+<li>应用程序被移除</li>
+</ul></li>
+<li>...</li>
 </ul>
 <p>未完待续...</p>
 
