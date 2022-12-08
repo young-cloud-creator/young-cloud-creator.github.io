@@ -29,3 +29,21 @@ title: 随便写写
 ## 2022.12.4
 
 DDL好多，我好迷茫🥺
+
+---
+
+**Deadlines**
+
+- JWork 5~7 & JFP -> January, 2023
+
+- SE Lab6 -> December 15, 2022
+
+- SA Lab7 -> December 28, 2022
+
+- iOS Development -> December 22, 2022
+
+- SQA -> January, 2023
+
+- Maoism&Socialism -> January, 2023
+
+- Marxism -> December 30, 2022
