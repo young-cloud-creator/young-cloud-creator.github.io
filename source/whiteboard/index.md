@@ -34,16 +34,26 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- JWork 5~7 & JFP -> January, 2023
-
-- SE Lab6 -> December 15, 2022
-
-- SA Lab7 -> December 28, 2022
-
-- iOS Development -> December 22, 2022
-
-- SQA -> January, 2023
-
-- Maoism&Socialism -> January, 2023
+- SA Lab7 & Lab8 -> December 28, 2022
+    - Alias-Aware Interprocedural Constant Propagation
+    - Taint Analysis
 
 - Marxism -> December 30, 2022
+
+- Maoism&Socialism -> December 30, 2022
+
+- Situation and Policy -> January 9, 2023
+
+- Ocean&Human -> January 14, 2023
+
+- Software Testing -> January 15, 2023
+
+- JWork 5~7 & JFP -> January, 2023
+    - Developing a Java Game from Scratch
+
+- iOS Development -> January, 2023
+    - iWork 4, 8
+    - One Month Hackathon
+    - Final Project
+
+- SQA -> Unknown, 2023
