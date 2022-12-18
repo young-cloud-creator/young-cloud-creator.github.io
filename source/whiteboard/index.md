@@ -34,8 +34,7 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- SA Lab7 & Lab8 -> December 28, 2022
-    - Alias-Aware Interprocedural Constant Propagation
+- SA Lab8 -> December 28, 2022
     - Taint Analysis
 
 - Marxism -> December 30, 2022
