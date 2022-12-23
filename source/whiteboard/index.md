@@ -34,9 +34,6 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- SA Lab8 -> December 28, 2022
-    - Taint Analysis
-
 - Marxism -> December 30, 2022
 
 - Maoism&Socialism -> December 30, 2022
@@ -51,7 +48,6 @@ DDL好多，我好迷茫🥺
     - Developing a Java Game from Scratch
 
 - iOS Development -> January, 2023
-    - iWork 4, 8
     - One Month Hackathon
     - Final Project
 
