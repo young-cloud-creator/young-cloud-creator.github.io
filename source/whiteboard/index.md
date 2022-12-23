@@ -34,8 +34,6 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- Marxism -> December 30, 2022
-
 - Maoism&Socialism -> December 30, 2022
 
 - Situation and Policy -> January 9, 2023
@@ -44,10 +42,10 @@ DDL好多，我好迷茫🥺
 
 - Software Testing -> January 15, 2023
 
-- JWork 5~7 & JFP -> January, 2023
+- JWork 5~7 & JFP -> January 25, 2023
     - Developing a Java Game from Scratch
 
-- iOS Development -> January, 2023
+- iOS Development -> January 27, 2023
     - One Month Hackathon
     - Final Project
 
