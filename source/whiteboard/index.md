@@ -36,8 +36,6 @@ DDL好多，我好迷茫🥺
 
 - Maoism&Socialism -> December 30, 2022
 
-- Situation and Policy -> January 9, 2023
-
 - Ocean&Human -> January 14, 2023
 
 - Software Testing -> January 15, 2023
