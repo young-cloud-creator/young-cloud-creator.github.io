@@ -43,8 +43,4 @@ DDL好多，我好迷茫🥺
 - JWork 5~7 & JFP -> January 25, 2023
     - Developing a Java Game from Scratch
 
-- iOS Development -> January 27, 2023
-    - One Month Hackathon
-    - Final Project
-
 - SQA -> Unknown, 2023
