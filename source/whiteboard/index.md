@@ -34,13 +34,11 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- Maoism&Socialism -> December 30, 2022
-
-- Ocean&Human -> January 14, 2023
-
 - Software Testing -> January 15, 2023
 
 - JWork 5~7 & JFP -> January 25, 2023
     - Developing a Java Game from Scratch
 
-- SQA -> Unknown, 2023
+- Maoism&Socialism -> January, 2023
+
+- SQA -> January, 2023
