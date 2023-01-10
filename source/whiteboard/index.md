@@ -30,11 +30,13 @@ title: 随便写写
 
 DDL好多，我好迷茫🥺
 
+## 2022.1.10
+
+《葫芦娃的两星期奇妙冒险》明日动工🥹
+
 ---
 
 **Deadlines**
-
-- Software Testing -> January 15, 2023
 
 - JWork 5~7 & JFP -> January 25, 2023
     - Developing a Java Game from Scratch
