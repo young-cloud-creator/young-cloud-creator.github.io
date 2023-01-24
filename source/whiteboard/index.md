@@ -38,9 +38,6 @@ DDL好多，我好迷茫🥺
 
 **Deadlines**
 
-- JWork 5~7 & JFP -> January 25, 2023
-    - Developing a Java Game from Scratch
-
 - Maoism&Socialism -> January, 2023
 
 - SQA -> January, 2023
