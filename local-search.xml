@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Go语言初探</title>
+    <link href="/go-basic/"/>
+    <url>/go-basic/</url>
+    
+    <content type="html"><![CDATA[<h2 id="go语言背景介绍">Go语言背景介绍</h2><p>近几年来，Go语言在服务端开发中的地位逐渐提高，越来越多的企业开始在开发中使用Go语言。Go语言（Golang）是由Google开发的一款静态强类型、编译型、并发型、具有垃圾回收功能的开源编程语言。</p><p>不同于JavaScript、Python等动态类型语言中变量类型可变的特点，Go语言的类型系统是静态强类型，和Java、C等语言一样，Go语言中的变量类型是固定的。此外，Go语言是一款编译型的语言，不同于Java、Kotlin等语言编译后的JVM字节码二进制文件需要运行在JVM中，Go语言编译得到的目标文件则是机器码二进制文件，能够直接在操作系统中运行，而无需借助其他运行环境，这与C、C++是一致的。并发是Go语言的一个重要特点，Go语言的并发模型是以CSP为基础设计的，这使并发程序的开发难度被降低。Go的垃圾回收功能使开发者不必过多考虑内存管理问题，此外，Go语言原生提供了大量的网络通信相关的库，因而使用Go进行服务端开发更加轻松。</p><h2 id="go语言语法初探">Go语言语法初探</h2><p>Go语言的语法并不复杂，学习成本比较低。下面这段代码的功能是输出“helloworld”到stdout。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br><span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>fmt.Println(<span class="hljs-string">&quot;hello world&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure><p>第1行代码声明了代码所在的package为main，main包比较特殊。它定义了一个独立可执行程序，而不是一个库。第3-4行的import语句引入了fmt包，这个包是Go语言标准库中的一个包，顾名思义是提供格式化（format）相关的函数。随后，这段代码定义了main函数，与C、C++等众多语言一样，main包下的main函数是Go程序的入口，在Go中，函数定义的关键字是<code>func</code>。这段代码的main函数中只有一句<code>fmt.Println("hello world")</code>，这一句的含义是调用fmt包的Println方法打印出helloworld。</p><p>值得一提的是，Go语言依据变量和函数命名的大小写区分访问权限，约定以大写字母开头的方法和变量是暴露在外的，任何包的代码均可以访问，类似于Java中的public；而以小写字母开头的方法和变量只在包内可以被访问，类似于Java中的default；此外，以下划线<code>_</code>开头的方法和变量仅在本文件内可以被访问，类似于Java中的private。上面的Println函数以大写字母开头，因此我们才能够在main包中调用它。</p><p>不同于常见的面向对象语言，Go语言并没有类和对象的概念，也不提供继承机制。Go并不是一门面向对象的语言（OOPL），但通过Go语言提供的struct等机制可以实现面向对象开发。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;initial&quot;</span><br><br><span class="hljs-keyword">var</span> b, c <span class="hljs-type">int</span> = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br><br><span class="hljs-keyword">var</span> d = <span class="hljs-literal">true</span><br><br><span class="hljs-keyword">var</span> e <span class="hljs-type">float64</span><br><br>f := <span class="hljs-type">float32</span>(e)<br><br>g := a + <span class="hljs-string">&quot;foo&quot;</span><br>fmt.Println(a, b, c, d, e, f) <span class="hljs-comment">// initial 1 2 true 0 0</span><br>fmt.Println(g)                <span class="hljs-comment">// initialfoo</span><br><br><span class="hljs-keyword">const</span> s <span class="hljs-type">string</span> = <span class="hljs-string">&quot;constant&quot;</span><br><span class="hljs-keyword">const</span> h = <span class="hljs-number">500000000</span><br><span class="hljs-keyword">const</span> i = <span class="hljs-number">3e20</span> / h<br></code></pre></td></tr></table></figure><p>上面这段代码展示了Go语言中的变量和赋值操作，在Go语言中，<code>var</code>关键字表示一个变量，而<code>const</code>关键字表示一个常量，常量的值在编译期就被确定。从上面的代码不难看出，Go语言变量的类型声明被放在变量名之后，例如<code>var a int</code>定义了一个整数型变量<code>a</code>。此外，Go语言支持变量类型推断，比如上面的<code>var d = true</code>中<code>d</code>的类型就有Go语言自动推断得到。</p><p>在Go语言中，有一个特别的操作符<code>:=</code>，例如<code>g := a + "foo"</code>，它的含义是定义一个变量<code>g</code>，<code>g</code>的值为<code>a + "foo"</code>，类型有Go语言自动推断这句话等同于首先定义<code>var g string</code>，再通过<code>g = a + "foo"</code>将值赋给<code>g</code>。</p><p>未完待续...</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Go</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Go</tag>
+      
+      <tag>后端</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Android常规&amp;高级UI编程</title>
     <link href="/android-ui/"/>
     <url>/android-ui/</url>

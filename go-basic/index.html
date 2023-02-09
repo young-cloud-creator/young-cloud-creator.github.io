@@ -18,25 +18,25 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。">
+    <meta name="description" content="Go语言是一款静态强类型、编译型、并发型、具有垃圾回收功能的开源编程语言，近几年在服务端开发中的热度逐渐升高。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android常规&amp;高级UI编程">
-<meta property="og:url" content="https://young-cloud-creator.github.io/android-ui/">
+<meta property="og:title" content="Go语言初探">
+<meta property="og:url" content="https://young-cloud-creator.github.io/go-basic/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。">
+<meta property="og:description" content="Go语言是一款静态强类型、编译型、并发型、具有垃圾回收功能的开源编程语言，近几年在服务端开发中的热度逐渐升高。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-ui/index.png">
-<meta property="article:published_time" content="2022-08-21T14:47:38.618Z">
-<meta property="article:modified_time" content="2022-08-21T14:47:38.618Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/go-basic/index.png">
+<meta property="article:published_time" content="2023-02-09T14:33:15.844Z">
+<meta property="article:modified_time" content="2023-02-09T14:33:15.844Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="布局">
-<meta property="article:tag" content="动画">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="后端">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/android-ui/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/go-basic/index.png">
   
   
   
-  <title>Android常规&amp;高级UI编程 - Cloud Creator&#39;s Blog</title>
+  <title>Go语言初探 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Android常规&amp;高级UI编程"></span>
+            <span id="subtitle" data-typed-text="Go语言初探"></span>
           
         </div>
 
@@ -249,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-21 22:47" pubdate>
-          2022年8月21日 晚上
+        <time datetime="2023-02-09 22:33" pubdate>
+          2023年2月9日 晚上
         </time>
       </span>
     
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.7k 字
         
       </span>
     
@@ -318,123 +318,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Android常规&amp;高级UI编程</h1>
+            <h1 style="display: none">Go语言初探</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在Android的UI编程中，开发者会用到许多UI组件，比如文本框、图像框乃至列表、输入框等等；而在设计UI时，又需要了解各种布局方式；更进一步，还需要加上一些动画效果。下面逐一来介绍它们。</p>
-<h1 id="ui组件">UI组件</h1>
-<p>Android应用的UI界面就是由一个个UI组件构成的，Android
-SDK提供了大量UI组件供开发者选择，当然开发者也可以选择自定义UI组件。这里介绍一些常用的UI组件：</p>
-<ul>
-<li>TextView
-<ul>
-<li>文本组件，用于展示文本，可以设置文字的大小、颜色等信息</li>
-<li>位于android.widget.TextView</li>
-</ul></li>
-<li>ImageView
-<ul>
-<li>图片组件，用于展示图片，可以设置图片的展示方式，比如居中拉伸、居中裁剪等等</li>
-<li>位于android.widget.ImageView</li>
-</ul></li>
-<li>Button
-<ul>
-<li>按钮组件，用于放置一个按钮，可以设置按钮的大小、按钮上的信息等</li>
-<li>位于android.widget.Button</li>
-</ul></li>
-<li>EditText
-<ul>
-<li>输入框组件，用于放置一个输入框，可以设置输入框的内容（数字、文本等）、输入框的提示信息、输入框的自动填充类型等</li>
-<li>位于android.widget.EditText</li>
-</ul></li>
-<li>CheckBox
-<ul>
-<li>复选框组件，用于放置一个复选框，可以设置默认是否被勾选等</li>
-<li>位于android.widget.CheckBox</li>
-</ul></li>
-<li>RadioButton
-<ul>
-<li>单选按钮，通常与RadioButtonGroup一起使用得到一组互斥的选择按钮，可以设置默认是否选中等。</li>
-<li>位于android.widget.RadioButton</li>
-</ul></li>
-<li>...</li>
-</ul>
-<p>对于大多数UI组件，它们都有下面的一些属性：</p>
-<ul>
-<li>id
-<ul>
-<li>设置id，从而能够唯一地标识该组件，一般为“@+id/bala_bala”的形式</li>
-</ul></li>
-<li>height
-<ul>
-<li>设置组件高度</li>
-</ul></li>
-<li>width
-<ul>
-<li>设置组件宽度</li>
-</ul></li>
-<li>margin
-<ul>
-<li>设置组件的外边距，也就是组件和其他组件的距离</li>
-<li>左右边距、上下边距都可以单独设置</li>
-</ul></li>
-<li>padding
-<ul>
-<li>设置组件的内边距，也就是组件内部元素到组件边缘的距离，比如文本组件的内边距就是文字到组件边缘的距离</li>
-<li>左右边距、上下边距都可以单独设置</li>
-</ul></li>
-<li>gravity
-<ul>
-<li>设置组件相对于父容器的对齐方式，有居中、左对齐、右对齐等方式</li>
-</ul></li>
-<li>...</li>
-</ul>
-<p>除了上面提到的像TextView一类的常规UI组件，组件容器也是一种UI组件，常见的UI组件包括LinearLayout、ConstraintLayout等布局容器组件，ListView、RecyclerView等列表组件以及ViewPager等分页组件，等等。</p>
-<h1 id="ui布局">UI布局</h1>
-<p>有了各种组件，就需要一个容器来摆放这些组件，规定它们的大小、位置、层级等信息。这个容器就是布局容器，常用的布局容器有LinearLayout、RelativeLayout、FrameLayout、ConstraintLayout几种容器：</p>
-<ul>
-<li>LinearLayout
-<ul>
-<li>线性布局，按照水平或垂直方向排列UI组件，所有子视图在单个方向保持对齐</li>
-</ul></li>
-<li>RelativeLayout
-<ul>
-<li>相对布局，布局内的组件通过相对于父容器/兄弟组件的位置来排列，从而减少布局的嵌套，提高复杂场景的布局性能</li>
-</ul></li>
-<li>FrameLayout
-<ul>
-<li>以层级叠加的方式排列组件，不同于之前的布局，该布局是在Z轴方向上进行的，适用于多层叠加场景（例如：前景图和背景图的叠加）</li>
-</ul></li>
-<li>ConstraintLayout
-<ul>
-<li>约束布局，组件的位置取决于约束条件，可以使用扁平无嵌套的方式实现较复杂的布局</li>
-</ul></li>
-</ul>
-<h1 id="ui动画">UI动画</h1>
-<p>在设计应用交互时，合适的动画能带来体验的巨大提升。相较于直接画面的突兀变化，通过动画进行的渐进式变化更符合人的审美要求。在Android中，系统提供了帧动画、补间动画和属性动画三种动画形式。</p>
-<ul>
-<li>帧动画
-<ul>
-<li>作用于View类对象</li>
-<li>原理类似于GIF，即通过按照指定顺序和间隔播放一组图片（帧）实现的动画</li>
-<li>优点是使用简单方便，缺点是功能单一（需要设置每一帧的画面）、容易OOM（Out
-of Memory，因为帧动画需要存储每一帧画面）</li>
-</ul></li>
-<li>补间动画
-<ul>
-<li>作用于View类对象</li>
-<li>原理是确定开始和结束时的视图样式后，由插值器确定中间过程的样式，从而形成完整动画</li>
-<li>有透明度动画、旋转动画、缩放动画和平移动画四种类型，可以单独使用也可以组合使用</li>
-<li>优点是简单方便，缺点是效果单一、自定义程度低</li>
-</ul></li>
-<li>属性动画
-<ul>
-<li>可以作用于任意Java对象</li>
-<li>原理是在指定时间间隔内，不断改变对象属性的值，从而实现动画效果</li>
-<li>相较于前面的两种动画，属性动画扩充了动画的作用范围，同时能够实现丰富的动画效果</li>
-</ul></li>
-</ul>
+                <h2 id="go语言背景介绍">Go语言背景介绍</h2>
+<p>近几年来，Go语言在服务端开发中的地位逐渐提高，越来越多的企业开始在开发中使用Go语言。Go语言（Golang）是由Google开发的一款静态强类型、编译型、并发型、具有垃圾回收功能的开源编程语言。</p>
+<p>不同于JavaScript、Python等动态类型语言中变量类型可变的特点，Go语言的类型系统是静态强类型，和Java、C等语言一样，Go语言中的变量类型是固定的。此外，Go语言是一款编译型的语言，不同于Java、Kotlin等语言编译后的JVM字节码二进制文件需要运行在JVM中，Go语言编译得到的目标文件则是机器码二进制文件，能够直接在操作系统中运行，而无需借助其他运行环境，这与C、C++是一致的。并发是Go语言的一个重要特点，Go语言的并发模型是以CSP为基础设计的，这使并发程序的开发难度被降低。Go的垃圾回收功能使开发者不必过多考虑内存管理问题，此外，Go语言原生提供了大量的网络通信相关的库，因而使用Go进行服务端开发更加轻松。</p>
+<h2 id="go语言语法初探">Go语言语法初探</h2>
+<p>Go语言的语法并不复杂，学习成本比较低。下面这段代码的功能是输出“hello
+world”到stdout。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	fmt.Println(<span class="hljs-string">&quot;hello world&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>第1行代码声明了代码所在的package为main，main包比较特殊。它定义了一个独立可执行程序，而不是一个库。第3-4行的import语句引入了fmt包，这个包是Go语言标准库中的一个包，顾名思义是提供格式化（format）相关的函数。随后，这段代码定义了main函数，与C、C++等众多语言一样，main包下的main函数是Go程序的入口，在Go中，函数定义的关键字是<code>func</code>。这段代码的main函数中只有一句<code>fmt.Println("hello world")</code>，这一句的含义是调用fmt包的Println方法打印出hello
+world。</p>
+<p>值得一提的是，Go语言依据变量和函数命名的大小写区分访问权限，约定以大写字母开头的方法和变量是暴露在外的，任何包的代码均可以访问，类似于Java中的public；而以小写字母开头的方法和变量只在包内可以被访问，类似于Java中的default；此外，以下划线<code>_</code>开头的方法和变量仅在本文件内可以被访问，类似于Java中的private。上面的Println函数以大写字母开头，因此我们才能够在main包中调用它。</p>
+<p>不同于常见的面向对象语言，Go语言并没有类和对象的概念，也不提供继承机制。Go并不是一门面向对象的语言（OOPL），但通过Go语言提供的struct等机制可以实现面向对象开发。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;initial&quot;</span><br><br><span class="hljs-keyword">var</span> b, c <span class="hljs-type">int</span> = <span class="hljs-number">1</span>, <span class="hljs-number">2</span><br><br><span class="hljs-keyword">var</span> d = <span class="hljs-literal">true</span><br><br><span class="hljs-keyword">var</span> e <span class="hljs-type">float64</span><br><br>f := <span class="hljs-type">float32</span>(e)<br><br>g := a + <span class="hljs-string">&quot;foo&quot;</span><br>fmt.Println(a, b, c, d, e, f) <span class="hljs-comment">// initial 1 2 true 0 0</span><br>fmt.Println(g)                <span class="hljs-comment">// initialfoo</span><br><br><span class="hljs-keyword">const</span> s <span class="hljs-type">string</span> = <span class="hljs-string">&quot;constant&quot;</span><br><span class="hljs-keyword">const</span> h = <span class="hljs-number">500000000</span><br><span class="hljs-keyword">const</span> i = <span class="hljs-number">3e20</span> / h<br></code></pre></td></tr></table></figure>
+<p>上面这段代码展示了Go语言中的变量和赋值操作，在Go语言中，<code>var</code>关键字表示一个变量，而<code>const</code>关键字表示一个常量，常量的值在编译期就被确定。从上面的代码不难看出，Go语言变量的类型声明被放在变量名之后，例如<code>var a int</code>定义了一个整数型变量<code>a</code>。此外，Go语言支持变量类型推断，比如上面的<code>var d = true</code>中<code>d</code>的类型就有Go语言自动推断得到。</p>
+<p>在Go语言中，有一个特别的操作符<code>:=</code>，例如<code>g := a + "foo"</code>，它的含义是定义一个变量<code>g</code>，<code>g</code>的值为<code>a + "foo"</code>，类型有Go语言自动推断这句话等同于首先定义<code>var g string</code>，再通过<code>g = a + "foo"</code>将值赋给<code>g</code>。</p>
+<p>未完待续...</p>
 
                 
               </div>
@@ -453,7 +356,7 @@ of Memory，因为帧动画需要存储每一帧画面）</li>
     
       <span class="category-chain">
         
-  <a href="/categories/Android/" class="category-chain-item">Android</a>
+  <a href="/categories/Go/" class="category-chain-item">Go</a>
   
   
 
@@ -468,9 +371,9 @@ of Memory，因为帧动画需要存储每一帧画面）</li>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%B8%83%E5%B1%80/">#布局</a>
+        <a href="/tags/Go/">#Go</a>
       
-        <a href="/tags/%E5%8A%A8%E7%94%BB/">#动画</a>
+        <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>
       
     </div>
   
@@ -482,8 +385,8 @@ of Memory，因为帧动画需要存储每一帧画面）</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Android常规&amp;高级UI编程</div>
-      <div>https://young-cloud-creator.github.io/android-ui/</div>
+      <div>Go语言初探</div>
+      <div>https://young-cloud-creator.github.io/go-basic/</div>
     </div>
     <div class="license-meta">
       
@@ -495,7 +398,7 @@ of Memory，因为帧动画需要存储每一帧画面）</li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月21日</div>
+          <div>2023年2月9日</div>
         </div>
       
       
@@ -537,18 +440,12 @@ of Memory，因为帧动画需要存储每一帧画面）</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/go-basic/" title="Go语言初探">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Go语言初探</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/android-performance/" title="Android性能优化介绍">
-                        <span class="hidden-mobile">Android性能优化介绍</span>
+                      <a href="/android-ui/" title="Android常规&amp;高级UI编程">
+                        <span class="hidden-mobile">Android常规&amp;高级UI编程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
