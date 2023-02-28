@@ -18,26 +18,26 @@
   <meta name="author" content="Young Cloud Creator">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录相关资源链接🔗">
+    <meta name="description" content="当下，信息和计算需求爆炸式增长，单机性能已经难以满足要求，此外，摩尔定律逐渐失效、单机性能提升速度放缓，单机性能短时间内无法取得突破性进步。在这样的背景下，分布式系统已然成为现代架构的基石，即通过多个独立的计算节点的计算资源来完成共同的目标。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="青训营课程备忘录">
-<meta property="og:url" content="https://young-cloud-creator.github.io/android-camp/">
+<meta property="og:title" content="分布式系统初探">
+<meta property="og:url" content="https://young-cloud-creator.github.io/distributed-system/">
 <meta property="og:site_name" content="Cloud Creator&#39;s Blog">
-<meta property="og:description" content="记录相关资源链接🔗">
+<meta property="og:description" content="当下，信息和计算需求爆炸式增长，单机性能已经难以满足要求，此外，摩尔定律逐渐失效、单机性能提升速度放缓，单机性能短时间内无法取得突破性进步。在这样的背景下，分布式系统已然成为现代架构的基石，即通过多个独立的计算节点的计算资源来完成共同的目标。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/android-camp/index.png">
-<meta property="article:published_time" content="2022-08-20T14:44:17.156Z">
-<meta property="article:modified_time" content="2022-08-20T14:44:17.156Z">
+<meta property="og:image" content="https://young-cloud-creator.github.io/illustration/distributed-system/index.png">
+<meta property="article:published_time" content="2023-02-28T13:04:22.110Z">
+<meta property="article:modified_time" content="2023-02-28T13:04:22.110Z">
 <meta property="article:author" content="Young Cloud Creator">
-<meta property="article:tag" content="Android">
+<meta property="article:tag" content="分布式">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/android-camp/index.png">
+<meta name="twitter:image" content="https://young-cloud-creator.github.io/illustration/distributed-system/index.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>青训营课程备忘录 - Cloud Creator&#39;s Blog</title>
+  <title>分布式系统初探 - Cloud Creator&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="青训营课程备忘录"></span>
+            <span id="subtitle" data-typed-text="分布式系统初探"></span>
           
         </div>
 
@@ -248,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-20 22:44" pubdate>
-          2022年8月20日 晚上
+        <time datetime="2023-02-28 21:04" pubdate>
+          2023年2月28日 晚上
         </time>
       </span>
     
@@ -260,7 +260,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          899 字
+          2.8k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
         
-          8 分钟
+          24 分钟
         
       </span>
     
@@ -317,70 +317,118 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">青训营课程备忘录</h1>
+            <h1 style="display: none">分布式系统初探</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li>课件
+                <p>当下，信息和计算需求爆炸式增长，单机性能已经难以满足要求，此外，摩尔定律逐渐失效、单机性能提升速度放缓，单机性能短时间内无法取得突破性进步。在这样的背景下，分布式系统已然成为现代架构的基石，即通过多个独立的计算节点的计算资源来完成共同的目标。</p>
+<h1 id="什么是分布式">什么是分布式</h1>
+<p>分布式系统是计算机程序的集合，这些程序利用跨多个独立计算节点的计算资源来实现共同的目标。具体来说，分布式包括分布式计算、分布式存储、分布式数据库等多种应用场景。</p>
+<p>分布式的优势包括：</p>
 <ul>
-<li>Android系统及客户端概览
+<li>去中心化
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcntg9ODycSnohqxvnxnsPSib</li>
+<li>不依赖于特定的中心主机，不会因为一台机器的崩溃造成整个计算系统的崩溃</li>
 </ul></li>
-<li>客户端基础知识必备
+<li>低成本
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnbVAyWfkXYvuKceYvkjP4cf</li>
+<li>对单机性能没有过高要求，完全可以使用多个性能相对较低的机器实现一个性能较高的机器的效果</li>
 </ul></li>
-<li>常规 &amp; 高级UI编程
+<li>弹性
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnWteLLzg9wTQm42T0AJ5OEg</li>
+<li>可以随时增加和减少计算节点</li>
 </ul></li>
-<li>数据存储 &amp; 网络通信
+<li>资源共享
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnGNmmcmZPHwa1gVvYDkPRJf</li>
+<li>各个计算节点共享资源</li>
 </ul></li>
-<li>探索多媒体直播技术
+<li>可靠性高
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnbjKbNM9og2rkY1RdiPd5ng</li>
+<li>单个节点的故障不影响整体</li>
 </ul></li>
-<li>端智能技术演进及实践
+</ul>
+<p>但同时，分布式技术也面临着一些挑战，例如：不可靠的网络、异构的机器与硬件环境、安全防护等。</p>
+<h1 id="常见的分布式系统">常见的分布式系统</h1>
+<p>常见的分布式存储系统：</p>
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcn0mC7wwFySmJDXzmSCQqIrb</li>
-</ul></li>
-<li>初识性能优化及工具
+<li>Google File System（GFS）：Google出品的分布式文件系统</li>
+<li>Ceph：统一的分布式存储系统</li>
+<li>Hadoop HDFS：基于GFS架构的开源分布式文件系统</li>
+<li>Zookeeper：高可用的分布式数据管理与系统协调框架</li>
+</ul>
+<p>常见的分布式数据库系统：</p>
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnpuZkMnN2YlR2sus4OLUuAb</li>
-</ul></li>
-<li>打开ART虚拟机的大门
+<li>Google Spanner：Google出品的可扩展、全球分布式的数据库</li>
+<li>TiDB：开源的分布式关系型数据库</li>
+<li>HBase：开源的NoSQL数据库</li>
+<li>MongoDB：文档数据库</li>
+</ul>
+<p>常见的分布式计算系统：</p>
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnPhd70kV2NolKSAm0jL1u6k</li>
-</ul></li>
-<li>客户端架构设计及应用
+<li>Hadoop：基于MapReduce计算模型的分布式计算框架</li>
+<li>Spark：在Hadoop基础上加以改进的分布式计算框架，特点是使用内存而不是外置磁盘存储数据</li>
+<li>YARN：分布式资源调度系统</li>
+</ul>
+<h1 id="分布式系统故障模型">分布式系统故障模型</h1>
+<p>这里列出分布式系统中常见的故障模型，在分布式系统的设计中，应当建立这些故障模型并设置相应的处理逻辑。</p>
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcniKiKFmBpZQ6SLm6rmj4AHd</li>
-</ul></li>
-<li>成为一名好RD，你该具备的研发素养
+<li>Byzantine Failure：节点可以任意篡改发送给其他节点的数据</li>
+<li>Authentication Detectable Byzantine(ADB) Failure：是Byzantine
+Failure的特例，节点可以篡改数据，但不能伪造其他节点的数据</li>
+<li>Performance
+Failure：节点未在特定时间段内收到数据，即收到数据的时间点太早或太晚</li>
+<li>Omission Failure：节点收到数据的时间无限晚，即收不到数据</li>
+<li>Crash Failure：在Omission
+Failure的基础上增加了节点停止响应的假设，可以看作是持续性的Omission
+Failure</li>
+<li>Fail-Stop Failure：在Crash
+Failure的基础上增加了错误可检测的假设</li>
+</ul>
+<p>举例来说，节点的磁盘故障（例如磁头不寻道、磁介质损伤等）可能会带来Fail-Stop
+Failure（错误可被节点发现）；磁盘坏道、坏块问题可能会带来Fail-Stop
+Failure和ADB
+Failure（本机数据错误，但其他节点的数据不受影响）；主板故障可能会导致Crash
+Failure（节点完全崩溃）；网络故障可能会带来Byzantine
+Failure（网络问题导致数据发生错误），等等。</p>
+<h1 id="分布式系统理论基础">分布式系统理论基础</h1>
+<p>分布式系统建立在相关理论的基础之上，设计分布式系统时需要注意遵循这些原则和理论。这里简要介绍CAP理论、ACID理论和BASE理论。</p>
+<h2 id="cap理论">CAP理论</h2>
+<p>CAP是Consistence、Availability和Partitioning（这里指Network
+Partitioning）三个单词的首字母缩写。这三个概念的基本含义是：</p>
 <ul>
-<li>https://bytedance.feishu.cn/file/boxcnawlG7yeG2mocPxgjTpGjVg</li>
-</ul></li>
-</ul></li>
-<li>配套资料
+<li>Consistence：一致性。它指的是数据在多个副本之间能够保持（严格的）一致性的特性</li>
+<li>Availability：可用性。它是指系统提供的服务必须一直处于可用的状态，即每次请求都能获取到非错的响应（但不保证获取的数据是最新数据）</li>
+<li>Network
+Partitioning：网络分区。它指的是分区容错能力，分布式系统在遇到网络中任何分区的故障时，仍然能够对外提供满足一致性和可用性的服务，除非整个网络环境都发生了故障。</li>
+</ul>
+<p>CAP理论通常用于数据库领域，但也适用于分布式存储的方向。</p>
+<p>在上面的C、A、P三个性质中，有时为了达到某些要求，会追求其中的某一部分而放弃另一部分性质，比如：</p>
 <ul>
-<li>Android 客户端专场 学习资料一
+<li>CA：放弃网络分区容错机制，加强一致性和可用性，典型的例子是传统的单机数据库（因为数据库存储不是分布式的，所以没有网络分区容错的要求）</li>
+<li>AP：放弃强一致性，追求分区容错性和可用性，这在一些注重用户体验的系统上比较常见，例如文档协作可以容忍不同终端之间的短时间的不一致</li>
+<li>CP：放弃可用性，追求一致性和分区容错性，例如与金融安全相关的系统（宁可服务短时间中断，也不能出现不一致的数据，例如交易系统的数据如果不一致将带来较大经济损失）</li>
+</ul>
+<h2 id="acid理论">ACID理论</h2>
+<p>ACID理论是针对数据库事务提出的，约束了数据库事务的特性。事务是数据库管理系统执行过程中的一个逻辑单元，它保证一个事务中的所有操作要么全部执行，要么全部不执行。</p>
+<p>ACID是数据库事务的四个特性Atomicity、Consistence、Isolation和Durability的首字母缩写，这些特性的含义分别是：</p>
 <ul>
-<li>https://juejin.cn/post/7122710954457956383</li>
-</ul></li>
-<li>Android 客户端专场 学习资料二
+<li>Atomicity：原子性，指的是事务包含的所有操作要么全部成功，要么全部失败，回滚到操作之前的状态</li>
+<li>Consistency：一致性，指的是事务必须使数据库从一个一致性状态变换到另一个一致性状态，也就是说一个事务执行之前和执行之后都必须处于一致性状态</li>
+<li>Isolation：隔离性，指的是当多个用户并发访问数据库时，数据库为每一个用户开启的事务不能被其他事务的操作所干扰，也就是多个并发事务之间要相互隔离</li>
+<li>Durability：持久性，指的是一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作</li>
+</ul>
+<h2 id="base理论">BASE理论</h2>
+<p>BASE理论是对CAP理论中的一致性和可用性权衡的结果，其来源于对大型互联网分布式实践的总结，是基于CAP定理逐步演化而来的。BASE是对Basically
+Available、Soft state和Eventually
+consistent的首字母缩写，其具体含义为：</p>
 <ul>
-<li>https://juejin.cn/post/7123453378176221215</li>
-</ul></li>
-<li>Android 客户端专场 学习资料三
-<ul>
-<li>https://juejin.cn/post/7123529478558613512</li>
-</ul></li>
-</ul></li>
+<li>Basically
+Available：基本可用，是指假设系统出现了不可预知的故障，系统仍然能用，但较正常系统而言存在响应时间或系统功能上的损失</li>
+<li>Soft
+state：软状态，这一状态指的是数据中间状态，含义是允许系统中的数据存在中间状态，并认为该状态不影响系统的整体可用性，即允许系统在多个不同节点的数据副本存在数据延时</li>
+<li>Eventually
+consistent：最终一致性，指的是系统能够保证在没有其他新的更新操作的情况下，数据最终一定能够达到一致的状态，因此所有客户端对系统的数据访问最终都能够获取到最新的值</li>
 </ul>
 
                 
@@ -400,7 +448,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9D%82%E9%A1%B9/" class="category-chain-item">杂项</a>
+  <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="category-chain-item">分布式</a>
   
   
 
@@ -415,7 +463,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Android/">#Android</a>
+        <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">#分布式</a>
       
     </div>
   
@@ -427,8 +475,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>青训营课程备忘录</div>
-      <div>https://young-cloud-creator.github.io/android-camp/</div>
+      <div>分布式系统初探</div>
+      <div>https://young-cloud-creator.github.io/distributed-system/</div>
     </div>
     <div class="license-meta">
       
@@ -440,7 +488,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月20日</div>
+          <div>2023年2月28日</div>
         </div>
       
       
@@ -482,18 +530,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/android-performance/" title="Android性能优化介绍">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Android性能优化介绍</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/live-stream/" title="多媒体直播技术介绍">
-                        <span class="hidden-mobile">多媒体直播技术介绍</span>
+                      <a href="/go-basic/" title="Go语言学习笔记">
+                        <span class="hidden-mobile">Go语言学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
